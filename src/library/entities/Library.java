@@ -1,5 +1,5 @@
 /***********************************************************************
- * @Author   		 	:Harsha_Dilup_Kumara - hrajap04@student.csu.edu.at
+ * @Author   		 	:Harsha_Dilup_Kumara - hrajap04@student.csu.edu.au
  * @Mediator 		 	:Niharika_Gavvala
  * @Reviewer 		 	:Chelaka_Fernando 
  * @Lecturer 		 	:Recep_Ulusoy
@@ -25,12 +25,12 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class Library implements Serializable {
 	
-	private static final String lIbRaRyFiLe = "library.obj";
-	private static final int lOaNlImIt = 2;
-	private static final int loanPeriod = 2;
-	private static final double FiNe_PeR_DaY = 1.0;
-	private static final double maxFinesOwed = 1.0;
-	private static final double damageFee = 2.0;
+	private static final String LIBRARY_FILE = "library.obj"; // variable renaming lIbRaRyFiLe -> LIBRARY_FILE
+	private static final int LOAN_LIMIT = 2; // variable renaming lOaNlImIt-> LOAN_LIMIT
+	private static final int LOAN_PERIOD = 2; // variable renaming loanPeriod-> LOAN_PERIOD
+	private static final double FINE_PER_DAY = 1.0; // variable renaming FiNe_PeR_DaY -> FINE_PER_DAY
+	private static final double MAX_FINE_OWNED = 1.0; // variable renaming maxFinesOwed -> MAX_FINE_OWNED
+	private static final double DAMAGE_FEE = 2.0; // variable renaming damageFee -> DAMAGE_FEE
 	
 	private static Library SeLf;
 	private int bOoK_Id;
