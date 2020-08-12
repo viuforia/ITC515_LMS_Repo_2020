@@ -1,5 +1,13 @@
-package library.entities;
+/***********************************************************************
+ * @Author   		 	:Harsha_Dilup_Kumara - hrajap04@student.csu.edu.at
+ * @Mediator 		 	:Niharika_Gavvala
+ * @Reviewer 		 	:Chelaka_Fernando 
+ * @Lecturer 		 	:Recep_Ulusoy
+ * @File_Created_Date       	:27/07/2020
+ * @File_Last_Update_Date 	:12/08/2020
+ ***********************************************************************/
 
+package library.entities;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
