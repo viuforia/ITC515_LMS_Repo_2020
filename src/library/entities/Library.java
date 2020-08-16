@@ -25,55 +25,87 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class Library implements Serializable {
 	
-	private static final String LIBRARY_FILE = "library.obj"; // constant variable renaming lIbRaRyFiLe -> LIBRARY_FILE
-	private static final int LOAN_LIMIT = 2; // constant variable renaming lOaNlImIt-> LOAN_LIMIT
-	private static final int LOAN_PERIOD = 2; // constant variable renaming loanPeriod-> LOAN_PERIOD
-	private static final double FINE_PER_DAY = 1.0; // constant variable renaming FiNe_PeR_DaY -> FINE_PER_DAY
-	private static final double MAX_FINE_OWNED = 1.0; // constant variable renaming maxFinesOwed -> MAX_FINE_OWNED
-	private static final double DAMAGE_FEE = 2.0; // constant variable renaming damageFee -> DAMAGE_FEE
+	private static final String LIBRARY_FILE = "library.obj"; // constant variable renaming lIbRaRyFiLe change to LIBRARY_FILE
+	private static final int LOAN_LIMIT = 2; // constant variable renaming lOaNlImIt change to LOAN_LIMIT
+	private static final int LOAN_PERIOD = 2; // constant variable renaming loanPeriod change to LOAN_PERIOD
+	private static final double FINE_PER_DAY = 1.0; // constant variable renaming FiNe_PeR_DaY change to FINE_PER_DAY
+	private static final double MAX_FINE_OWNED = 1.0; // constant variable renaming maxFinesOwed change to MAX_FINE_OWNED
+	private static final double DAMAGE_FEE = 2.0; // constant variable renaming damageFee change to DAMAGE_FEE
 	
-	private static Library SeLf;
-	private int bOoK_Id;
-	private int mEmBeR_Id;
-	private int lOaN_Id;
-	private Date lOaN_DaTe;
+	private static Library libraryInstance; // variable name SeLf change to libraryInstance
+	private int bookId; // variable name bOoK_Id change to bookId
+	private int memberId; // variable name mEmBeR_Id change to memberId
+	private int loanId; // variable name lOaN_Id change to loanId
+	private Date loanDate; // variable name lOaN_DaTe change to loanDate
 	
-	private Map<Integer, Book> CaTaLoG;
-	private Map<Integer, Member> MeMbErS;
-	private Map<Integer, Loan> LoAnS;
-	private Map<Integer, Loan> CuRrEnT_LoAnS;
-	private Map<Integer, Book> DaMaGeD_BoOkS;
+	private Map<Integer, Book> bookCatalogues; // variable name CaTaLoG change to bookCatalogues
+	private Map<Integer, Member> libraryMembers; // variable name MeMbErS change to libraryMembers
+	private Map<Integer, Loan> bookLoans; // variable name LoAnS change to bookLoans
+	private Map<Integer, Loan> currentBookLoans; // variable name CuRrEnT_LoAnS change to currentBookLoans
+	private Map<Integer, Book> damagedBooks; // variable name DaMaGeD_BoOkS change to damagedBooks
 	
 
+	/*The default constructor overloaded by initializing member variables */
 	private Library() {
-		CaTaLoG = new HashMap<>();
-		MeMbErS = new HashMap<>();
-		LoAnS = new HashMap<>();
-		CuRrEnT_LoAnS = new HashMap<>();
-		DaMaGeD_BoOkS = new HashMap<>();
-		bOoK_Id = 1;
-		mEmBeR_Id = 1;		
-		lOaN_Id = 1;		
+		
+		//CaTaLoG = new HashMap<>();
+		bookCatalogues = new HashMap<>(); // Change initializing variable naming CaTaLoG to bookCatalogues
+
+		//MeMbErS = new HashMap<>();
+		libraryMembers = new HashMap<>(); // Change initializing variable naming MeMbErS to libraryMembers
+
+		//LoAnS = new HashMap<>();
+		bookLoans = new HashMap<>(); //  Change initializing variable naming LoAnS to bookLoans
+
+		//CuRrEnT_LoAnS = new HashMap<>();
+		currentBookLoans = new HashMap<>(); // Change initializing variable naming CuRrEnT_LoAnS to currentBookLoans
+
+		//DaMaGeD_BoOkS = new HashMap<>();
+		damagedBooks = new HashMap<>(); // change initializing variable naming DaMaGeD_BoOkS to damagedBooks
+
+		//bOoK_Id = 1;
+		bookId = 1; // change initializing variable naming bOoK_Id to bookId
+		
+		//mEmBeR_Id = 1;
+		memberId = 1; // change initializing variable naming mEmBeR_Id to memberId
+
+		//lOaN_Id = 1;	
+		loanId = 1;	// change initializing variable naming lOaN_Id to loanId
 	}
 
-	
-	public static synchronized Library GeTiNsTaNcE() {		
-		if (SeLf == null) {
-			Path PATH = Paths.get(lIbRaRyFiLe);			
-			if (Files.exists(PATH)) {	
-				try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
-			    
-					SeLf = (Library) LiBrArY_FiLe.readObject();
-					Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
-					LiBrArY_FiLe.close();
+	/*synchronized method that create library instance */
+	public static synchronized Library getInstance() { // Method name change GeTiNsTaNcE to getInstance
+		////if (self == null)
+		if (libraryInstance == null) { // condition variable renaming self into if(self == null) to  if(library == null)
+			//Path PATH = Paths.get(lIbRaRyFiLe);
+			Path path = Paths.get(LIBRARY_FILE); //	variable renamming PATH into path and	
+			//if (Files.exists(PATH)) {
+			if (Files.exists(path)) { // condition variable renaming PATH into path
+				//try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
+				try {
+			    		FileInputStream fileInputStream =  new FileInputStream(LIBRARY_FILE); // Declaration new variable of fileInputStream
+					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream); // renaming variable LiBrArY_FiLe to objectInputStream
+					libraryInstance = (Library) objectInputStream.readObject(); // renaming variable LiBrArY_FiLe into objectInputStream and Self into libraryInstance
+					
+					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
+					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
+					Calendar calender = Calendar.getInstance(); // simplified the code by delcaring new calender object 
+					calender.setTime(libraryInstance.loanDate); // change the invalid instance method of SeT_DaTe to setTime and change the  SeLf.lOaN_DaTe naming to libraryInstance.loanDate
+					
+					//LiBrArY_FiLe.close();
+					objectInputStream.close(); // change LiBrArY_FiLe to objectInputStream
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
-			else SeLf = new Library();
+			//else SeLf = new Library();
+			else {
+				libraryInstance = new Library(); //change SeLf to libraryInstance and wrap them in else brackets
+			}
 		}
-		return SeLf;
+		//return SeLf;
+		return libraryInstance // change variable name SeLf to libraryInstance
 	}
 
 	
