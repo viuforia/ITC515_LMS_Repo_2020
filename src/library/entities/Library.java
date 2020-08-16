@@ -45,15 +45,32 @@ public class Library implements Serializable {
 	private Map<Integer, Book> damagedBooks; // variable name DaMaGeD_BoOkS change to damagedBooks
 	
 
+	/*The default constructor overloaded by initializing member variables */
 	private Library() {
-		CaTaLoG = new HashMap<>();
-		MeMbErS = new HashMap<>();
-		LoAnS = new HashMap<>();
-		CuRrEnT_LoAnS = new HashMap<>();
-		DaMaGeD_BoOkS = new HashMap<>();
-		bOoK_Id = 1;
-		mEmBeR_Id = 1;		
-		lOaN_Id = 1;		
+		
+		//CaTaLoG = new HashMap<>();
+		bookCatalogues = new HashMap<>(); // Change initializing variable naming CaTaLoG to bookCatalogues
+
+		//MeMbErS = new HashMap<>();
+		libraryMembers = new HashMap<>(); // Change initializing variable naming MeMbErS to libraryMembers
+
+		//LoAnS = new HashMap<>();
+		bookLoans = new HashMap<>(); //  Change initializing variable naming LoAnS to bookLoans
+
+		//CuRrEnT_LoAnS = new HashMap<>();
+		currentBookLoans = new HashMap<>(); // Change initializing variable naming CuRrEnT_LoAnS to currentBookLoans
+
+		//DaMaGeD_BoOkS = new HashMap<>();
+		damagedBooks = new HashMap<>(); // change initializing variable naming DaMaGeD_BoOkS to damagedBooks
+
+		//bOoK_Id = 1;
+		bookId = 1; // change initializing variable naming bOoK_Id to bookId
+		
+		//mEmBeR_Id = 1;
+		memberId = 1; // change initializing variable naming mEmBeR_Id to memberId
+
+		//lOaN_Id = 1;	
+		loanId = 1;	// change initializing variable naming lOaN_Id to loanId
 	}
 
 	
