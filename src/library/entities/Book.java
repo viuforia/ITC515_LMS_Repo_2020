@@ -16,7 +16,8 @@ public class Book implements Serializable {
 	//private int iD;
 	private int id;//iD changed to id
 	
-	private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	//private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };//sTaTe changed to State
 	private sTaTe StAtE;
 	
 	
