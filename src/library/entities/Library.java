@@ -32,7 +32,7 @@ public class Library implements Serializable {
 	private static final double MAX_FINE_OWNED = 1.0; // constant variable renaming maxFinesOwed change to MAX_FINE_OWNED
 	private static final double DAMAGE_FEE = 2.0; // constant variable renaming damageFee change to DAMAGE_FEE
 	
-	private static Library library; // variable name SeLf change to library
+	private static Library libraryInstance; // variable name SeLf change to libraryInstance
 	private int bookId; // variable name bOoK_Id change to bookId
 	private int memberId; // variable name mEmBeR_Id change to memberId
 	private int loanId; // variable name lOaN_Id change to loanId
@@ -73,24 +73,39 @@ public class Library implements Serializable {
 		loanId = 1;	// change initializing variable naming lOaN_Id to loanId
 	}
 
-	
-	public static synchronized Library GeTiNsTaNcE() {		
-		if (SeLf == null) {
-			Path PATH = Paths.get(lIbRaRyFiLe);			
-			if (Files.exists(PATH)) {	
-				try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
-			    
-					SeLf = (Library) LiBrArY_FiLe.readObject();
-					Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
-					LiBrArY_FiLe.close();
+	/*synchronized method that create library instance */
+	public static synchronized Library getInstance() { // Method name change GeTiNsTaNcE to getInstance
+		////if (self == null)
+		if (libraryInstance == null) { // condition variable renaming self into if(self == null) to  if(library == null)
+			//Path PATH = Paths.get(lIbRaRyFiLe);
+			Path path = Paths.get(LIBRARY_FILE); //	variable renamming PATH into path and	
+			//if (Files.exists(PATH)) {
+			if (Files.exists(path)) { // condition variable renaming PATH into path
+				//try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
+				try {
+			    		FileInputStream fileInputStream =  new FileInputStream(LIBRARY_FILE); // Declaration new variable of fileInputStream
+					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream); // renaming variable LiBrArY_FiLe to objectInputStream
+					libraryInstance = (Library) objectInputStream.readObject(); // renaming variable LiBrArY_FiLe into objectInputStream and Self into libraryInstance
+					
+					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
+					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
+					Calendar calender = Calendar.getInstance(); // simplified the code by delcaring new calender object 
+					calender.setTime(libraryInstance.loanDate); // change the invalid instance method of SeT_DaTe to setTime and change the  SeLf.lOaN_DaTe naming to libraryInstance.loanDate
+					
+					//LiBrArY_FiLe.close();
+					objectInputStream.close(); // change LiBrArY_FiLe to objectInputStream
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
-			else SeLf = new Library();
+			//else SeLf = new Library();
+			else {
+				libraryInstance = new Library(); //change SeLf to libraryInstance and wrap them in else brackets
+			}
 		}
-		return SeLf;
+		//return SeLf;
+		return libraryInstance // change variable name SeLf to libraryInstance
 	}
 
 	
