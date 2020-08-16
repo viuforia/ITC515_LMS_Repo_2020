@@ -25,24 +25,24 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class Library implements Serializable {
 	
-	private static final String LIBRARY_FILE = "library.obj"; // constant variable renaming lIbRaRyFiLe -> LIBRARY_FILE
-	private static final int LOAN_LIMIT = 2; // constant variable renaming lOaNlImIt-> LOAN_LIMIT
-	private static final int LOAN_PERIOD = 2; // constant variable renaming loanPeriod-> LOAN_PERIOD
-	private static final double FINE_PER_DAY = 1.0; // constant variable renaming FiNe_PeR_DaY -> FINE_PER_DAY
-	private static final double MAX_FINE_OWNED = 1.0; // constant variable renaming maxFinesOwed -> MAX_FINE_OWNED
-	private static final double DAMAGE_FEE = 2.0; // constant variable renaming damageFee -> DAMAGE_FEE
+	private static final String LIBRARY_FILE = "library.obj"; // constant variable renaming lIbRaRyFiLe change to LIBRARY_FILE
+	private static final int LOAN_LIMIT = 2; // constant variable renaming lOaNlImIt change to LOAN_LIMIT
+	private static final int LOAN_PERIOD = 2; // constant variable renaming loanPeriod change to LOAN_PERIOD
+	private static final double FINE_PER_DAY = 1.0; // constant variable renaming FiNe_PeR_DaY change to FINE_PER_DAY
+	private static final double MAX_FINE_OWNED = 1.0; // constant variable renaming maxFinesOwed change to MAX_FINE_OWNED
+	private static final double DAMAGE_FEE = 2.0; // constant variable renaming damageFee change to DAMAGE_FEE
 	
-	private static Library SeLf;
-	private int bOoK_Id;
-	private int mEmBeR_Id;
-	private int lOaN_Id;
-	private Date lOaN_DaTe;
+	private static Library library; // variable name SeLf change to library
+	private int bookId; // variable name bOoK_Id change to bookId
+	private int memberId; // variable name mEmBeR_Id change to memberId
+	private int loanId; // variable name lOaN_Id change to loanId
+	private Date loanDate; // variable name lOaN_DaTe change to loanDate
 	
-	private Map<Integer, Book> CaTaLoG;
-	private Map<Integer, Member> MeMbErS;
-	private Map<Integer, Loan> LoAnS;
-	private Map<Integer, Loan> CuRrEnT_LoAnS;
-	private Map<Integer, Book> DaMaGeD_BoOkS;
+	private Map<Integer, Book> bookCatalogues; // variable name CaTaLoG change to bookCatalogues
+	private Map<Integer, Member> libraryMembers; // variable name MeMbErS change to libraryMembers
+	private Map<Integer, Loan> bookLoans; // variable name LoAnS change to bookLoans
+	private Map<Integer, Loan> currentBookLoans; // variable name CuRrEnT_LoAnS change to currentBookLoans
+	private Map<Integer, Book> damagedBooks; // variable name DaMaGeD_BoOkS change to damagedBooks
 	
 
 	private Library() {
