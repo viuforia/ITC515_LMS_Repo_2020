@@ -5,15 +5,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//Author: Chelaka,Niharika
+//Reviewer: Avishka
+//Mediator: Harsha
+
 @SuppressWarnings("serial")
 public class Member implements Serializable {
 
-	private String LaSt_NaMe;
-	private String FiRsT_NaMe;
-	private String EmAiL_AdDrEsS;
-	private int PhOnE_NuMbEr;
-	private int MeMbEr_Id;
-	private double FiNeS_OwInG;
+	//private String LaSt_NaMe;
+	private String lastName;//LaSt_NaMe changed to lastName
+	//private String FiRsT_NaMe;
+	private String firstName;//FiRsT_NaMe changed to firstName
+	//private String EmAiL_AdDrEsS;
+	private String emailAddress;//EmAiL_AdDrEsS changed to emailAddress
+	//private int PhOnE_NuMbEr;
+	private int phoneNumber;//PhOnE_NuMbEr changed to phoneNumber
+	//private int MeMbEr_Id;
+	private int memberId;//MeMbEr_Id changed to memberId
+	//private double FiNeS_OwInG;
+	private double finesOwing;//FiNeS_OwInG changed to finesOwing
 	
 	private Map<Integer, Loan> cUrReNt_lOaNs;
 
