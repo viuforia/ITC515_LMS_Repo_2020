@@ -90,7 +90,7 @@ public class Library implements Serializable {
 					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
 					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
 					Calendar calender = Calendar.getInstance(); // simplified the code by delcaring new calender object 
-					calender.setTime(libraryInstance.loanDate); // change the invalid instance method of SeT_DaTe to setTime and change the  SeLf.lOaN_DaTe naming to libraryInstance.loanDate
+					calender.setDate(libraryInstance.loanDate); // change the invalid instance method of SeT_DaTe to setDate and change the  SeLf.lOaN_DaTe naming to libraryInstance.loanDate
 					
 					//LiBrArY_FiLe.close();
 					objectInputStream.close(); // change LiBrArY_FiLe to objectInputStream
@@ -108,14 +108,29 @@ public class Library implements Serializable {
 		return libraryInstance // change variable name SeLf to libraryInstance
 	}
 
-	
-	public static synchronized void SaVe() {
-		if (SeLf != null) {
-			SeLf.lOaN_DaTe = Calendar.gEtInStAnCe().gEt_DaTe();
-			try (ObjectOutputStream LiBrArY_fIlE = new ObjectOutputStream(new FileOutputStream(lIbRaRyFiLe));) {
-				LiBrArY_fIlE.writeObject(SeLf);
-				LiBrArY_fIlE.flush();
-				LiBrArY_fIlE.close();	
+	//public static synchronized void SaVe() {
+	public static synchronized void writeLibraryFile() { // change the method name SaVe to writeLibraryFile
+		//if (SeLf != null) {
+		  if (libraryInstance != null) { // Change selef to libraryInstance 
+			  
+			//SeLf.lOaN_DaTe = Calendar.gEtInStAnCe().gEt_DaTe();
+			Calendar calender = Calendar.getInstance(); // Create calender instance object 
+			libraryInstance.loanDate = calender.getDate(); // change instance method name gEt_DaTe() to  getDate
+			  
+			//try (ObjectOutputStream LiBrArY_fIlE = new ObjectOutputStream(new FileOutputStream(lIbRaRyFiLe));) {
+			try {
+				FileOutputStream fileOutPutStream =  new FileOutputStream(LIBRARY_FILE); // Declaration new variable of fileOutPutStream
+				ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutPutStream); // renaming variable LiBrArY_FiLe to objectOutputStream
+				
+				//LiBrArY_fIlE.writeObject(SeLf);
+				objectOutputStream.writeObject(libraryInstance); // change self variable to libraryInstance
+				
+				//LiBrArY_fIlE.flush();
+				objectOutputStream.flush(); // change LiBrArY_fIlE variable to objectOutputStream
+				
+				//LiBrArY_fIlE.close();	
+				objectOutputStream.close(); // change LiBrArY_fIlE variable to objectOutputStream
+				
 			}
 			catch (Exception e) {
 				throw new RuntimeException(e);
