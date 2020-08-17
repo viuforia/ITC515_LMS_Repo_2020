@@ -51,9 +51,12 @@ public class Book implements Serializable {
 		return sb.toString();
 	}
 
-	public Integer gEtId() {
-		return iD;
+	//public Integer gEtId() {
+	public int getId() {//changed Integer to int and gEtId to getId
+		//return iD;
+		return id;//changed iD to id
 	}
+
 
 	public String gEtTiTlE() {
 		return tItLe;
