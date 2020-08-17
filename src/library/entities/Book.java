@@ -16,16 +16,23 @@ public class Book implements Serializable {
 	//private int iD;
 	private int id;//iD changed to id
 	
-	private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
-	private sTaTe StAtE;
+	//private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	private enum State { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };//sTaTe changed to State
+	//private sTaTe StAtE;
+	private State state;//changed sTaTe to State and StAtE to state
 	
 	
 	public Book(String author, String title, String callNo, int id) {
-		this.AuThOr = author;
-		this.tItLe = title;
-		this.CALLNO = callNo;
-		this.iD = id;
-		this.StAtE = sTaTe.AVAILABLE;
+		//this.AuThOr = author;
+		this.author = author;//changed AuThOr to author
+		//this.tItLe = title;
+		this.title = title;//changed tItLe to title
+		//this.CALLNO = callNo;
+		this.callNo = callNo;//changed CALLNO to callNo
+		//this.iD = id;
+		this.id = id;//changed iD to id
+		//this.StAtE = sTaTe.AVAILABLE;
+		this.state = State.AVAILABLE;//changed this.StAtE to this.state and sTaTe.AVAILABLE to State.AVAILABLE
 	}
 	
 	public String toString() {
