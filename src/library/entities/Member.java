@@ -126,13 +126,14 @@ public class Member implements Serializable {
 	}
 
 
-	public void dIsChArGeLoAn(Loan LoAn) {
-		/*if (cUrReNt_lOaNs.containsKey(LoAn.GeT_Id())) 
+	/*public void dIsChArGeLoAn(Loan LoAn) {
+		if (cUrReNt_lOaNs.containsKey(LoAn.GeT_Id())) 
 			cUrReNt_lOaNs.remove(LoAn.GeT_Id());
 		
 		else 
 			throw new RuntimeException("No such loan held by member"); */
 		
+	public void dischargeLoan(Loan loan) {  //changed to dischargeLoan(Loan loan) form dIsChArGeLoAn(Loan LoAn)
 		if (currentLoans.containsKey(loan.getId())) {      //have added the braces and changed the cUrReNt_lOaNs to
 			currentLoans.remove(loan.getid());
 		}
