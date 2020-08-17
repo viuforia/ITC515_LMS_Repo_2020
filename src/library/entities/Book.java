@@ -58,8 +58,10 @@ public class Book implements Serializable {
 	}
 
 
-	public String gEtTiTlE() {
-		return tItLe;
+	//public String gEtTiTlE() {
+	public String getTitle() {//changed gEtTiTlE to getTitle
+		//return tItLe;
+		return title;//changed tItLe to title
 	}
 
 
