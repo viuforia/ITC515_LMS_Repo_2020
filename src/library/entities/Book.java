@@ -37,11 +37,16 @@ public class Book implements Serializable {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(iD).append("\n")
-		  .append("  Title:  ").append(tItLe).append("\n")
-		  .append("  Author: ").append(AuThOr).append("\n")
-		  .append("  CallNo: ").append(CALLNO).append("\n")
-		  .append("  State:  ").append(StAtE);
+		//sb.append("Book: ").append(iD).append("\n")
+		  sb.append("Book: ").append(id).append("\n")//changed iD to id
+		  //.append("  Title:  ").append(tItLe).append("\n")
+		  .append("  Title:  ").append(title).append("\n")//changed tItLe to title
+		  //.append("  Author: ").append(AuThOr).append("\n")
+		  .append("  Author: ").append(author).append("\n")//changed AuThOr to author		
+		  //.append("  CallNo: ").append(CALLNO).append("\n")
+		  .append("  CallNo: ").append(callNo).append("\n")//changed CALLNO to callNo		
+		  //.append("  State:  ").append(StAtE);
+		  .append("  State:  ").append(state);//changed StAtE to state
 		
 		return sb.toString();
 	}
