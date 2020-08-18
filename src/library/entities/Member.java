@@ -5,27 +5,47 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//Author: Chelaka,Niharika
+//Reviewer: Avishka
+//Mediator: Harsha
+
 @SuppressWarnings("serial")
 public class Member implements Serializable {
 
-	private String LaSt_NaMe;
-	private String FiRsT_NaMe;
-	private String EmAiL_AdDrEsS;
-	private int PhOnE_NuMbEr;
-	private int MeMbEr_Id;
-	private double FiNeS_OwInG;
+	//private String LaSt_NaMe;
+	private String lastName;//LaSt_NaMe changed to lastName
+	//private String FiRsT_NaMe;
+	private String firstName;//FiRsT_NaMe changed to firstName
+	//private String EmAiL_AdDrEsS;
+	private String emailAddress;//EmAiL_AdDrEsS changed to emailAddress
+	//private int PhOnE_NuMbEr;
+	private int phoneNumber;//PhOnE_NuMbEr changed to phoneNumber
+	//private int MeMbEr_Id;
+	private int memberId;//MeMbEr_Id changed to memberId
+	//private double FiNeS_OwInG;
+	private double finesOwing;//FiNeS_OwInG changed to finesOwing
 	
-	private Map<Integer, Loan> cUrReNt_lOaNs;
+	//private Map<Integer, Loan> cUrReNt_lOaNs;
+	private Map<Integer, Loan> currentLoans;
 
 	
-	public Member(String lAsT_nAmE, String fIrSt_nAmE, String eMaIl_aDdReSs, int pHoNe_nUmBeR, int mEmBeR_iD) {
-		this.LaSt_NaMe = lAsT_nAmE;
-		this.FiRsT_NaMe = fIrSt_nAmE;
-		this.EmAiL_AdDrEsS = eMaIl_aDdReSs;
-		this.PhOnE_NuMbEr = pHoNe_nUmBeR;
-		this.MeMbEr_Id = mEmBeR_iD;
+	//public Member(String lAsT_nAmE, String fIrSt_nAmE, String eMaIl_aDdReSs, int pHoNe_nUmBeR, int mEmBeR_iD) 
+	
+	public Member(String lastName, String firstName, String emailAddress, int phoneNumber, int memberId){  //lAsT_nAmE changed to lastName, fIrSt_nAmE changed to firstName, eMaIl_aDdReSs changed to emailAddress, pHoNe_nUmBeR changed to phoneNumber and mEmBeR_iD to memberId   
+
+		//this.LaSt_NaMe = lAsT_nAmE;
+		this.lastName = lastName;   //LaSt_NaMe changed to lastName and lAsT_nAmE to lastName
+		//this.FiRsT_NaMe = fIrSt_nAmE;
+		this.firstName = firstName;  //FiRsT_NaMe chnaged to firstname and fIrSt_nAmE to firstName
+		//this.EmAiL_AdDrEsS = eMaIl_aDdReSs;
+		this.emailAddress = emailAddress;   //EmAiL_AdDrEsS changed to emailAddress and eMaIl_aDdReSs to emailAddress
+		//this.PhOnE_NuMbEr = pHoNe_nUmBeR;
+		this.phoneNumber = phoneNumber;   //PhOnE_NuMbEr changed to phoneNumber and pHoNe_nUmBeR to phoneNumber
+		//this.MeMbEr_Id = mEmBeR_iD;
+		this.memberId = memberId;   //MeMbEr_Id changed to memberId and mEmBeR_iD to memberId
 		
-		this.cUrReNt_lOaNs = new HashMap<>();
+		//this.cUrReNt_lOaNs = new HashMap<>();
+		this.currentLoans = new HashMap<>();   //cUrReNt_lOaNs changed to currentLoans
 	}
 
 	
@@ -106,12 +126,21 @@ public class Member implements Serializable {
 	}
 
 
-	public void dIsChArGeLoAn(Loan LoAn) {
+	/*public void dIsChArGeLoAn(Loan LoAn) {
 		if (cUrReNt_lOaNs.containsKey(LoAn.GeT_Id())) 
 			cUrReNt_lOaNs.remove(LoAn.GeT_Id());
 		
 		else 
+			throw new RuntimeException("No such loan held by member"); */
+		
+	public void dischargeLoan(Loan loan) {  //changed to dischargeLoan(Loan loan) form dIsChArGeLoAn(Loan LoAn)
+		if (currentLoans.containsKey(loan.getId())) {      //have added the braces and changed the cUrReNt_lOaNs to
+			currentLoans.remove(loan.getid());
+		}
+		else {
 			throw new RuntimeException("No such loan held by member");
+		}
+		
 				
 	}
 

@@ -48,7 +48,8 @@ public class Calendar {
 	       // cAlEnDaR.set(java.util.Calendar.MINUTE, 0); 
 	       calendar.set(Calendar.MINUTE, 0); //changed calendar from cAlEnDaR
 	        //cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-		calendar.set(Calendar.SECOND, 0); 
+	     	calendar.set(Calendar.SECOND, 0); 
+    
 	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
 		}
 		catch (Exception e) {
