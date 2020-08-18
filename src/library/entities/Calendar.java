@@ -1,23 +1,33 @@
 package library.entities;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.Calendar
 
 public class Calendar {
 	
-	private static Calendar sElF;
-	private static java.util.Calendar cAlEnDaR;
+	//private static Calendar sElF;
+	private static Calendar self;
+	//private static java.util.Calendar cAlEnDaR;
+	private static calendar; //changed cAlEnDaR to calendar
 	
 	
 	private Calendar() {
-		cAlEnDaR = java.util.Calendar.getInstance();
+		//cAlEnDaR = java.util.Calendar.getInstance();
+		calender = calendar.getInstance(); //changed Calendar to calendar and removed the java.util
 	}
 	
-	public static Calendar gEtInStAnCe() {
+	/*public static Calendar gEtInStAnCe() {
 		if (sElF == null) {
 			sElF = new Calendar();
 		}
 		return sElF;
-	}
+	}*/
+	
+	public static Calendar getInstance() {
+		if (self == null) { //changed sElF to self
+			Calendar self = new Calendar(); //added the object reference and changed sElF to self
+		}
+		return self; //changed sElF to self
 	
 	public void incrementDate(int days) {
 		cAlEnDaR.add(java.util.Calendar.DATE, days);		
