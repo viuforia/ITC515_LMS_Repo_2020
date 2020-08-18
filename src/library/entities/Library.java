@@ -139,28 +139,40 @@ public class Library implements Serializable {
 	}
 
 	
-	public int gEt_BoOkId() {
-		return bOoK_Id;
+	//public int gEt_BoOkId() {
+	public int getBookId() {  // method name change gEt_BoOkId() to getBookId()
+		//return bOoK_Id;
+		return bookId; //variable name change bOoK_Id to bookId
 	}
 	
 	
-	public int gEt_MeMbEr_Id() {
-		return mEmBeR_Id;
+	//public int gEt_MeMbEr_Id() {
+	public int getMemberId() {  // method name change gEt_MeMbEr_Id() to getMemberId()
+		//return mEmBeR_Id;
+		return memberId; //variable name change mEmBeR_Id to memberId
 	}
 	
-	
-	private int gEt_NeXt_BoOk_Id() {
-		return bOoK_Id++;
+	// private int gEt_NeXt_BoOk_Id() {
+	private int getNextBookId() {  // method name change gEt_NeXt_BoOk_Id() to getNextBookId()
+		//return bOoK_Id++;
+		bookId = bookId + 1; // variable name change bOoK_Id to bookId and simplified the code
+		return bookId;
 	}
 
 	
-	private int gEt_NeXt_MeMbEr_Id() {
-		return mEmBeR_Id++;
+	//private int gEt_NeXt_MeMbEr_Id() {
+	private int getNextMemberId() {  // method name change gEt_NeXt_MeMbEr_Id() to getNextMemberId()
+		//return mEmBeR_Id++;
+		memberId = memberId + 1; // variable name change mEmBeR_Id to memberId and simplified the code
+		return memberId;
 	}
 
 	
-	private int gEt_NeXt_LoAn_Id() {
-		return lOaN_Id++;
+	//private int gEt_NeXt_LoAn_Id() {
+	private int getNextLoanId() {
+		//return lOaN_Id++; // method name change gEt_NeXt_LoAn_Id() to getNextLoanId()
+		loanId = loanId + 1; // variable name change lOaN_Id to loanId and simplified the code
+		return loanId;
 	}
 
 	
