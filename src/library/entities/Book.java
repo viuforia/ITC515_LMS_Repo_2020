@@ -2,7 +2,7 @@ package library.entities;
 import java.io.Serializable;
 //Author: Chelaka
 //Reviewer: Harsha
-//Mediator: Avishka
+//Mediator: Niharika
 
 @SuppressWarnings("serial")
 public class Book implements Serializable {
@@ -72,8 +72,10 @@ public class Book implements Serializable {
 	}
 
 	
-	public boolean iS_On_LoAn() {
-		return StAtE == sTaTe.ON_LOAN;
+	//public boolean iS_On_LoAn() {
+	public boolean isOnLoan() {//changed iS_On_LoAn to isOnLoan
+		//return StAtE == sTaTe.ON_LOAN;
+		return state == State.ON_LOAN;//changed StAtE to state and sTaTe to State
 	}
 
 	
