@@ -79,18 +79,22 @@ public class Book implements Serializable {
 	}
 
 	
-	public boolean iS_DaMaGeD() {
-		return StAtE == sTaTe.DAMAGED;
+	//public boolean iS_DaMaGeD() {
+	public boolean isDamaged() {//changed iS_DaMaGeD to isDamaged		
+		//return StAtE == sTaTe.DAMAGED;
+		return state == State.DAMAGED;//changed	StAtE to state and sTaTe to State
 	}
 
 	
-	public void BoRrOw() {
-		if (StAtE.equals(sTaTe.AVAILABLE)) 
-			StAtE = sTaTe.ON_LOAN;
-		
+	//public void BoRrOw() {
+	public void borrow() {	//changed BoRrOw to borrow	
+		//if (StAtE.equals(sTaTe.AVAILABLE)) 
+		if (state.equals(State.AVAILABLE))//changed StAtE to state and sTaTe to State
+			//StAtE = sTaTe.ON_LOAN;
+			state = State.ON_LOAN;//changed StAtE to state and sTaTe to State
 		else 
-			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", StAtE));
-		
+			//throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", StAtE));
+			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", state));//changed StAtE to state
 		
 	}
 
