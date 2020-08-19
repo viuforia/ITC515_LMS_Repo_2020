@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Collection;
 
 @SuppressWarnings("serial")
 public class Library implements Serializable {
@@ -38,7 +39,7 @@ public class Library implements Serializable {
 	private int loanId; // variable name lOaN_Id change to loanId
 	private Date loanDate; // variable name lOaN_DaTe change to loanDate
 	
-	private Map<Integer, Book> bookCatalogues; // variable name CaTaLoG change to bookCatalogues
+	private Map<Integer, Book> bookCatalogs; // variable name CaTaLoG change to bookCatalogs
 	private Map<Integer, Member> libraryMembers; // variable name MeMbErS change to libraryMembers
 	private Map<Integer, Loan> bookLoans; // variable name LoAnS change to bookLoans
 	private Map<Integer, Loan> currentBookLoans; // variable name CuRrEnT_LoAnS change to currentBookLoans
@@ -49,7 +50,7 @@ public class Library implements Serializable {
 	private Library() {
 		
 		//CaTaLoG = new HashMap<>();
-		bookCatalogues = new HashMap<>(); // Change initializing variable naming CaTaLoG to bookCatalogues
+		bookCatalogs = new HashMap<>(); // Change initializing variable naming CaTaLoG to bookCatalogs
 
 		//MeMbErS = new HashMap<>();
 		libraryMembers = new HashMap<>(); // Change initializing variable naming MeMbErS to libraryMembers
@@ -78,7 +79,7 @@ public class Library implements Serializable {
 		////if (self == null)
 		if (libraryInstance == null) { // condition variable renaming self into if(self == null) to  if(library == null)
 			//Path PATH = Paths.get(lIbRaRyFiLe);
-			Path path = Paths.get(LIBRARY_FILE); //	variable renamming PATH into path and	
+			Path path = Paths.get(LIBRARY_FILE); //	variable renaming PATH into path and	
 			//if (Files.exists(PATH)) {
 			if (Files.exists(path)) { // condition variable renaming PATH into path
 				//try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
@@ -89,7 +90,7 @@ public class Library implements Serializable {
 					
 					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
 					//Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
-					Calendar calender = Calendar.getInstance(); // simplified the code by delcaring new calender object 
+					Calendar calender = Calendar.getInstance(); //  simplified the code by declaring new calendar object  
 					calender.setDate(libraryInstance.loanDate); // change the invalid instance method of SeT_DaTe to setDate and change the  SeLf.lOaN_DaTe naming to libraryInstance.loanDate
 					
 					//LiBrArY_FiLe.close();
@@ -105,16 +106,16 @@ public class Library implements Serializable {
 			}
 		}
 		//return SeLf;
-		return libraryInstance // change variable name SeLf to libraryInstance
+		return libraryInstance; // change variable name SeLf to libraryInstance
 	}
 
 	//public static synchronized void SaVe() {
 	public static synchronized void writeLibraryFile() { // change the method name SaVe to writeLibraryFile
 		//if (SeLf != null) {
-		  if (libraryInstance != null) { // Change selef to libraryInstance 
+		  if (libraryInstance != null) { // Change self to libraryInstance  
 			  
 			//SeLf.lOaN_DaTe = Calendar.gEtInStAnCe().gEt_DaTe();
-			Calendar calender = Calendar.getInstance(); // Create calender instance object 
+			Calendar calender = Calendar.getInstance(); // Create calendar instance object 
 			libraryInstance.loanDate = calender.getDate(); // change instance method name gEt_DaTe() to  getDate
 			  
 			//try (ObjectOutputStream LiBrArY_fIlE = new ObjectOutputStream(new FileOutputStream(lIbRaRyFiLe));) {
@@ -184,10 +185,10 @@ public class Library implements Serializable {
 	}
 
 	// public List<Book> lIsT_BoOkS() {
-	public List<Book> getBooksCatalogList() {  // method name change lIsT_BoOkS() to getBooksCatalogList()		
+	public List<Book> getBooksCatalogsList() {  // method name change lIsT_BoOkS() to getBooksCatalogList()		
 		//return new ArrayList<Book>(CaTaLoG.values());  
-		Collection<bookCatalogs> bookCatalogsValues = bookCatalogs.values(); // Simplified the code and return the books catalogs list
-		ArrayList<bookCatalogs> bookCatalogsList = new ArrayList<bookCatalogs>(bookCatalogsValues); 
+		Collection<Book> bookCatalogsValues = bookCatalogs.values(); // Simplified the code and return the books catalogs list
+		ArrayList<Book> bookCatalogsList = new ArrayList<>(bookCatalogsValues); 
 		return bookCatalogsList; 
 	}
 
