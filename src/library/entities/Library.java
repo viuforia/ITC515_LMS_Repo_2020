@@ -175,14 +175,20 @@ public class Library implements Serializable {
 		return loanId;
 	}
 
-	
-	public List<Member> lIsT_MeMbErS() {		
-		return new ArrayList<Member>(MeMbErS.values()); 
+	//public List<Member> lIsT_MeMbErS() {
+	public List<Member> getLibraryMembersList() { // method name change lIsT_MeMbErS() to getLibraryMembersList()	
+		//return new ArrayList<Member>(MeMbErS.values()); 
+		Collection<Member> libraryMembersValues=  libraryMembers.values(); // Simplified the code and return the library members list
+		ArrayList<Member> LibrarymembersList = new ArrayList<Member>(libraryMembersValues);
+		return LibrarymembersList; 
 	}
 
-
-	public List<Book> lIsT_BoOkS() {		
-		return new ArrayList<Book>(CaTaLoG.values()); 
+	// public List<Book> lIsT_BoOkS() {
+	public List<Book> getBooksCatalogList() {  // method name change lIsT_BoOkS() to getBooksCatalogList()		
+		//return new ArrayList<Book>(CaTaLoG.values());  
+		Collection<bookCatalogs> bookCatalogsValues = bookCatalogs.values(); // Simplified the code and return the books catalogs list
+		ArrayList<bookCatalogs> bookCatalogsList = new ArrayList<bookCatalogs>(bookCatalogsValues); 
+		return bookCatalogsList; 
 	}
 
 
