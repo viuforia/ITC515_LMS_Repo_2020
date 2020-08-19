@@ -46,23 +46,31 @@ public class Calendar {
 	       //cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
 	       calendar.set(Calendar.HOUR_OF_DAY, 0);  //changed calendar from cAlEnDaR and removed java.util
 	       // cAlEnDaR.set(java.util.Calendar.MINUTE, 0); 
-	       calendar.set(Calendar.MINUTE, 0); //changed calendar from cAlEnDaR
+	       calendar.set(Calendar.MINUTE, 0); //changed calendar from cAlEnDaR and removed java.util
 	        //cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-	     	calendar.set(Calendar.SECOND, 0); 
+	     	calendar.set(Calendar.SECOND, 0); //changed from cAlEnDaR to calendar and removed java.util
     
-	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
+	       // cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
+	       calendar.set(Calendar.MILLISECOND, 0); //changed from cAlEnDaR to calendar and removed java.util
+	       
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}	
 	}
-	public synchronized Date gEt_DaTe() {
+	//public synchronized Date gEt_DaTe() {
+	public synchronized Date getDaTe() { //changed gEt_DaTe() to getDate()
 		try {
-	        cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
-	        cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
-	        cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
-			return cAlEnDaR.getTime();
+	        //cAlEnDaR.set(java.util.Calendar.HOUR_OF_DAY, 0);  
+		calendar.set(Calendar.HOUR_OF_DAY, 0);  //changed calendar and removed java.util
+	        //cAlEnDaR.set(java.util.Calendar.MINUTE, 0);  
+		calendar.set(Calendar.MINUTE, 0);  //changed calendar and removed java.util
+	        //cAlEnDaR.set(java.util.Calendar.SECOND, 0);  
+		calendar.set(Calendar.SECOND, 0);  //changed the calendar and removed java.util method
+	        //cAlEnDaR.set(java.util.Calendar.MILLISECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0); //removed the java.util method and changed the calendar upper and lower cases
+			//return cAlEnDaR.getTime();
+			return calendar.getTime();
 		}
 		catch (Exception e) {
 			throw new RuntimeException(e);
