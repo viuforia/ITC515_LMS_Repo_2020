@@ -77,19 +77,29 @@ public class Calendar {
 		}	
 	}
 
-	public synchronized Date gEt_DuE_DaTe(int loanPeriod) {
-		Date nOw = gEt_DaTe();
-		cAlEnDaR.add(java.util.Calendar.DATE, loanPeriod);
-		Date dUeDaTe = cAlEnDaR.getTime();
-		cAlEnDaR.setTime(nOw);
-		return dUeDaTe;
+	//public synchronized Date gEt_DuE_DaTe(int loanPeriod) {
+	public synchronized Date getDueDate(int loanPeriod) {      //changed gEt_DuE_DaTe to getDueDate
+		//Date nOw = gEt_DaTe();
+		Date now = getDate();  //changed nOw to now and gEt_DaTe to getDate
+		//cAlEnDaR.add(java.util.Calendar.DATE, loanPeriod);
+		calendar.add(Calendar.DATE, loanPeriod);   //changed cAlEnDaR to calendar and removed the java.util
+		//Date dUeDaTe = cAlEnDaR.getTime();
+		Calendar dueDate = calendar.getTime(); //Refactored the code according to the object reference i.e, changed Date to Calendar and dUeDaTe to dueDate and cAlEnDaR to calendar
+		//cAlEnDaR.setTime(nOw);
+		calendar.setTime(now);  //changed cAlEnDaR to calendar and nOw to now
+		//return dUeDaTe;
+		return dueDate;
 	}
 	
-	public synchronized long GeT_DaYs_DiFfErEnCe(Date targetDate) {
+	//public synchronized long GeT_DaYs_DiFfErEnCe(Date targetDate) {
+	public synchronized long getDaysDifference(Date targetDate) {   //changed GeT_DaYs_DiFfErEnCe to getDaysDifference
 		
-		long Diff_Millis = gEt_DaTe().getTime() - targetDate.getTime();
-	    long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
-	    return Diff_Days;
+		//long Diff_Millis = gEt_DaTe().getTime() - targetDate.getTime();
+		long diff_millis = getDate().getTime() - targetDate.getTime();  //changed the Diff_Millis to diff_milis and gEt_DaTe to getDate
+	    //long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
+	    long diff_days = TimeUnit.Days.convert(diff_millis, TimeUnit.MILLISECONDS);  //changed diff_days and DAYS to days
+	    //return Diff_Days;
+	    return diff_days;  //changed Diff_Days to diff_days
 	}
 
 }
