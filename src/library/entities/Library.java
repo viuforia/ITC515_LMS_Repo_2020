@@ -192,9 +192,12 @@ public class Library implements Serializable {
 		return bookCatalogsList; 
 	}
 
-
-	public List<Loan> lISt_CuRrEnT_LoAnS() {
-		return new ArrayList<Loan>(CuRrEnT_LoAnS.values());
+	//public List<Loan> lISt_CuRrEnT_LoAnS() {
+	public List<Loan> getCurrentBookingLoanList() {  // method name change to lISt_CuRrEnT_LoAnS getCurrentBookLoanList
+		//return new ArrayList<Loan>(CuRrEnT_LoAnS.values());
+		Collection<Loan> currentBookingLoanValues = currentBookLoans.values(); 
+		ArrayList<Loan> currentBookingLoanList = new ArrayList<>(currentBookingLoanValues);  // Simplified the code and return the books loan list
+		return currentBookingLoanList;
 	}
 
 
