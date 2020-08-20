@@ -2,11 +2,11 @@ package library.entities;
 
 import java.io.Serializable;
 /***********************************************************************
- * @Author   		 	:Chelaka_Fernando
- * @Mediator 		 	:Niharika_Gavvala
- * @Reviewer 		 	:Harsha_Dilup_Kumara
- * @Lecturer 		 	:Recep_Ulusoy
- * @File_Created_Date       	:27/07/2020
+ * @Author   		 	    :Chelaka_Fernando
+ * @Mediator 		 	    :Niharika_Gavvala
+ * @Reviewer 		 	    :Harsha_Dilup_Kumara
+ * @Lecturer 		 	    :Recep_Ulusoy
+ * @File_Created_Date       :27/07/2020
  * @File_Last_Update_Date 	:20/08/2020
  ***********************************************************************/
 
@@ -90,7 +90,7 @@ public class Book implements Serializable {
     }
 
     //public void BoRrOw() {
-    public void borrow() {	//changed BoRrOw to borrow	
+    public void getBorrowBook() {	//changed BoRrOw to borrow	
         //if (StAtE.equals(sTaTe.AVAILABLE)) 
         if (state.equals(State.AVAILABLE)) {//changed StAtE to state and sTaTe to State and added the curly brackets for the if condition
             //StAtE = sTaTe.ON_LOAN;
@@ -102,7 +102,7 @@ public class Book implements Serializable {
     }
 
     //public void ReTuRn(boolean DaMaGeD) {
-    public void returnDetails(boolean Damaged) {//changed ReTuRn to Return and DaMaGeD to  Damaged
+    public void getReturnBook(boolean Damaged) {//changed ReTuRn to Return and DaMaGeD to  Damaged
         //if (StAtE.equals(sTaTe.ON_LOAN))
         if (state.equals(State.ON_LOAN)) {//changed StAtE to state and sTaTe to State and added the curly brackets for the if condition
             //if (DaMaGeD) 
