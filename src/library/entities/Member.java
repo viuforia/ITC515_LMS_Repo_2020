@@ -2,13 +2,14 @@ package library.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * *********************************************************************
- * @Author   :Chelaka_Fernando
+ * @Author :Chelaka_Fernando
  * @Mediator :Niharika_Gavvala
  * @Reviewer :Harsha_Dilup_Kumara
  * @Lecturer :Recep_Ulusoy
@@ -76,14 +77,18 @@ public class Member implements Serializable {
         return sb.toString();
     }
 
-     //public int GeT_ID() {
+    //public int GeT_ID() {
     public int getMemberId() {//changed GeT_ID to getMemberId
         //return MeMbEr_Id;
-	  return memberId;//changed MeMbEr_Id to memberId
+        return memberId;//changed MeMbEr_Id to memberId
     }
 
-    public List<Loan> GeT_LoAnS() {
-        return new ArrayList<Loan>(cUrReNt_lOaNs.values());
+    //public List<Loan> GeT_LoAnS() {
+    public List<Loan> getLoans() {
+        //return new ArrayList<Loan>(cUrReNt_lOaNs.values());
+        Collection<Loan> currentBookingLoanValues = currentLoans.values();
+        ArrayList<Loan> currentBookingLoanList = new ArrayList<>(currentBookingLoanValues);  // Simplified the code and return the books loan list
+        return currentBookingLoanList;
     }
 
     public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
