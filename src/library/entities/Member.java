@@ -76,8 +76,10 @@ public class Member implements Serializable {
         return sb.toString();
     }
 
-    public int GeT_ID() {
-        return MeMbEr_Id;
+     //public int GeT_ID() {
+    public int getMemberId() {//changed GeT_ID to getMemberId
+        //return MeMbEr_Id;
+	  return memberId;//changed MeMbEr_Id to memberId
     }
 
     public List<Loan> GeT_LoAnS() {
