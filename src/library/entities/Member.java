@@ -77,7 +77,7 @@ public class Member implements Serializable {
     }
 
      //public int GeT_ID() {
-    public int getId() {//changed GeT_ID to getId
+    public int getMemberId() {//changed GeT_ID to getMemberId
         //return MeMbEr_Id;
 	  return memberId;//changed MeMbEr_Id to memberId
     }
