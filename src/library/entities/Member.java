@@ -2,13 +2,14 @@ package library.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
  * *********************************************************************
- * @Author   :Chelaka_Fernando
+ * @Author :Chelaka_Fernando
  * @Mediator :Niharika_Gavvala
  * @Reviewer :Harsha_Dilup_Kumara
  * @Lecturer :Recep_Ulusoy
@@ -76,41 +77,60 @@ public class Member implements Serializable {
         return sb.toString();
     }
 
-    public int GeT_ID() {
-        return MeMbEr_Id;
+    //public int GeT_ID() {
+    public int getMemberId() {//changed GeT_ID to getMemberId
+        //return MeMbEr_Id;
+        return memberId;//changed MeMbEr_Id to memberId
     }
 
-    public List<Loan> GeT_LoAnS() {
-        return new ArrayList<Loan>(cUrReNt_lOaNs.values());
+    //public List<Loan> GeT_LoAnS() {
+    public List<Loan> getLoans() {
+        //return new ArrayList<Loan>(cUrReNt_lOaNs.values());
+        Collection<Loan> currentBookingLoanValues = currentLoans.values();
+        ArrayList<Loan> currentBookingLoanList = new ArrayList<>(currentBookingLoanValues);  // Simplified the code and return the books loan list
+        return currentBookingLoanList;
     }
 
-    public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
-        return cUrReNt_lOaNs.size();
+    //public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
+    public int getNumberOfCurrentLoans() {//changed gEt_nUmBeR_Of_CuRrEnT_LoAnS to getNumberOfCurrentLoans
+        //return cUrReNt_lOaNs.size();
+	  return currentLoans.size();//changed cUrReNt_lOaNs to currentLoans 
     }
 
-    public double FiNeS_OwEd() {
-        return FiNeS_OwInG;
+    //public double FiNeS_OwEd() {
+    public double getFinesOwed() { //changed FiNeS_OwEd to getFinesOwed   
+        //return FiNeS_OwInG;
+	return finesOwing;//changed FiNeS_OwInG to finesOwing
     }
 
-    public void TaKe_OuT_LoAn(Loan lOaN) {
-        if (!cUrReNt_lOaNs.containsKey(lOaN.GeT_Id())) {
-            cUrReNt_lOaNs.put(lOaN.GeT_Id(), lOaN);
+    //public void TaKe_OuT_LoAn(Loan lOaN) {
+      public void takeOutLoan(Loan loan) {//changed TaKe_OuT_LoAn to takeOutLoan and lOaN to loan
+        //if (!cUrReNt_lOaNs.containsKey(lOaN.GeT_Id())) {
+	if (!currentLoans.containsKey(loan.getMemberId())) {//changed cUrReNt_lOaNs to currentLoans and lOaN to loan and GeT_Id to getMemberId
+            //cUrReNt_lOaNs.put(lOaN.GeT_Id(), lOaN);
+	    currentLoans.put(loan.getMemberId(), loan);//changed cUrReNt_lOaNs to currentLoans and lOaN to loan GeT_Id to getMemberId and lOaN to loan
         } else {
             throw new RuntimeException("Duplicate loan added to member");
         }
 
     }
 
-    public String GeT_LaSt_NaMe() {
-        return LaSt_NaMe;
+   // public String GeT_LaSt_NaMe() {
+    public String getLastName() {//changed GeT_LaSt_NaMe to getLastName
+        //return LaSt_NaMe;
+	return lastName;//changed  LaSt_NaMe to lastName
     }
 
-    public String GeT_FiRsT_NaMe() {
-        return FiRsT_NaMe;
+    //public String GeT_FiRsT_NaMe() {
+    public String getFirstName() {//changed GeT_FiRsT_NaMe to getFirstName
+        //return FiRsT_NaMe;
+	return firstName;//changed  FiRsT_NaMe to firstName
     }
 
-    public void AdD_FiNe(double fine) {
-        FiNeS_OwInG += fine;
+    //public void AdD_FiNe(double fine) {
+    public void addFine(double fine) {//changed AdD_FiNe to addFine
+        //FiNeS_OwInG += fine;
+	finesOwing = finesOwing + fine;//changed FiNeS_OwInG to finesOwing and simplified the calculation
     }
 
     public double PaY_FiNe(double AmOuNt) {
@@ -136,9 +156,9 @@ public class Member implements Serializable {
 		
 		else 
 			throw new RuntimeException("No such loan held by member"); */
-    public void dischargeLoan(Loan loan) {  //changed to dischargeLoan(Loan loan) form dIsChArGeLoAn(Loan LoAn)
-        if (currentLoans.containsKey(loan.getId())) { //have added the braces and changed the cUrReNt_lOaNs to currentLoans
-            currentLoans.remove(loan.getid());
+    public void dischargeLoan(Loan loan) {  //changed to dischargeLoan(Loan loan) from dIsChArGeLoAn(Loan LoAn)
+        if (currentLoans.containsKey(loan.getMemberId())) { //have added the braces and changed the cUrReNt_lOaNs to currentLoans and GeT_Id to getMemberId
+            currentLoans.remove(loan.getMemberId());//changed LoAn to loan and GeT_Id to getMemberId
         } else {
             throw new RuntimeException("No such loan held by member");
         }
