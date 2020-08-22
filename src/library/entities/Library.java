@@ -214,11 +214,18 @@ public class Library implements Serializable {
 		return member;
 	}
 
-	
-	public Book aDd_BoOk(String a, String t, String c) {		
-		Book b = new Book(a, t, c, gEt_NeXt_BoOk_Id());
-		CaTaLoG.put(b.gEtId(), b);		
-		return b;
+	// public Book aDd_BoOk(String a, String t, String c) {	
+	public Book addBook(String author, String title, String callNumber) {	// method name aDd_BoOk change to addBook and method parameter name into meaningful names		
+		//Book b = new Book(a, t, c, gEt_NeXt_BoOk_Id());
+		int nextBookId = getNextBookId();
+		Book book = new Book(author, title, callNumber,nextBookId); // simplified the code by creating next book id variable
+		
+		//CaTaLoG.put(b.gEtId(), b);	
+		int bookId = book.getId();
+		bookCatalogs.put(bookId, book);	// simplified the code by creating new book id by calling getId method
+		
+		//return b;
+		return book; // object instance update b to book
 	}
 
 	
