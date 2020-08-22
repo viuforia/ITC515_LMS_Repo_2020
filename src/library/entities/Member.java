@@ -103,9 +103,12 @@ public class Member implements Serializable {
 	return finesOwing;//changed FiNeS_OwInG to finesOwing
     }
 
-    public void TaKe_OuT_LoAn(Loan lOaN) {
-        if (!cUrReNt_lOaNs.containsKey(lOaN.GeT_Id())) {
-            cUrReNt_lOaNs.put(lOaN.GeT_Id(), lOaN);
+    //public void TaKe_OuT_LoAn(Loan lOaN) {
+      public void takeOutLoan(Loan loan) {//changed TaKe_OuT_LoAn to takeOutLoan and lOaN to loan
+        //if (!cUrReNt_lOaNs.containsKey(lOaN.GeT_Id())) {
+	if (!currentLoans.containsKey(loan.getMemberId())) {//changed cUrReNt_lOaNs to currentLoans and lOaN to loan and GeT_Id to getMemberId
+            //cUrReNt_lOaNs.put(lOaN.GeT_Id(), lOaN);
+	    currentLoans.put(loan.getMemberId(), loan);//changed cUrReNt_lOaNs to currentLoans and lOaN to loan GeT_Id to getMemberId and lOaN to loan
         } else {
             throw new RuntimeException("Duplicate loan added to member");
         }
@@ -147,9 +150,9 @@ public class Member implements Serializable {
 		
 		else 
 			throw new RuntimeException("No such loan held by member"); */
-    public void dischargeLoan(Loan loan) {  //changed to dischargeLoan(Loan loan) form dIsChArGeLoAn(Loan LoAn)
-        if (currentLoans.containsKey(loan.getId())) { //have added the braces and changed the cUrReNt_lOaNs to currentLoans
-            currentLoans.remove(loan.getid());
+    public void dischargeLoan(Loan loan) {  //changed to dischargeLoan(Loan loan) from dIsChArGeLoAn(Loan LoAn)
+        if (currentLoans.containsKey(loan.getMemberId())) { //have added the braces and changed the cUrReNt_lOaNs to currentLoans and GeT_Id to getMemberId
+            currentLoans.remove(loan.getMemberId());//changed LoAn to loan and GeT_Id to getMemberId
         } else {
             throw new RuntimeException("No such loan held by member");
         }
