@@ -91,12 +91,16 @@ public class Member implements Serializable {
         return currentBookingLoanList;
     }
 
-    public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
-        return cUrReNt_lOaNs.size();
+    //public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
+    public int getNumberOfCurrentLoans() {//changed gEt_nUmBeR_Of_CuRrEnT_LoAnS to getNumberOfCurrentLoans
+        //return cUrReNt_lOaNs.size();
+	  return currentLoans.size();//changed cUrReNt_lOaNs to currentLoans 
     }
 
-    public double FiNeS_OwEd() {
-        return FiNeS_OwInG;
+    //public double FiNeS_OwEd() {
+    public double getFinesOwed() { //changed FiNeS_OwEd to getFinesOwed   
+        //return FiNeS_OwInG;
+	return finesOwing;//changed FiNeS_OwInG to finesOwing
     }
 
     public void TaKe_OuT_LoAn(Loan lOaN) {
