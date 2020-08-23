@@ -295,7 +295,7 @@ public class Library implements Serializable {
 
 	
 	// public int gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(Member MeMbEr) { 
-	public int getNumberOfLoanRemaining(Member member) { // Method name change gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr to getNumberOfLoanRemaining	
+	public int getNumberOfLoanRemainingForMember(Member member) { // Method name change gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr to getNumberOfLoanRemainingForMember	
 		//return lOaNlImIt - MeMbEr.gEt_nUmBeR_Of_CuRrEnT_LoAnS();
 		
 		int loanLimit = 0; // Reactor the code by declaring loanLimit variable
