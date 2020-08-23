@@ -11,7 +11,7 @@ import java.util.Date;
 public class Loan implements Serializable {
 	
 	//public static enum lOaN_sTaTe { CURRENT, OVER_DUE, DISCHARGED };
-	public static enum loanState { CURRENT, OVER_DUE, DISCHARGED };  //renamed lOaN_sTaTe to loanState
+	public static enum LoanState { CURRENT, OVERDUE, DISCHARGED };  //renamed lOaN_sTaTe to LoanState aand removed underscore
 	
 	//private int LoAn_Id;
 	private int loanId;  //renamed the variable name to loanId from LoAn_Id
@@ -25,35 +25,51 @@ public class Loan implements Serializable {
 	private LoanState state;   //renamed lOaN_sTaTe StAtE to LoanState and StAtE to state
 
 	
-	public Loan(int loanId, Book bOoK, Member mEmBeR, Date DuE_dAtE) {
-		this.LoAn_Id = loanId;
-		this.BoOk = bOoK;
-		this.MeMbEr = mEmBeR;
-		this.DaTe = DuE_dAtE;
-		this.StAtE = lOaN_sTaTe.CURRENT;
+	//public Loan(int loanId, Book bOoK, Member mEmBeR, Date DuE_dAtE) {
+	public Loan(int loanId, Book book, Member member, Date dueDate) {   //renamed the variables bOoK to book, mEmBeR to member, DuE_dAtE to dueDate
+		//this.LoAn_Id = loanId; 
+		this.loanId = loanId;  //renamed LoAn_Id to loanId
+		//this.BoOk = bOoK;
+		this.Book = book;  //changed BoOk to Book and bOoK to book
+		//this.MeMbEr = mEmBeR;
+		this.Member = member;  //changed MeMbEr to Member and mEmBeR to member
+		//this.date = DuE_dAtE;
+		this.Date = dueDate;  //changed date to Date and DuE_dAtE to dueDate
+		//this.StAtE = lOaN_sTaTe.CURRENT;
+		this.State = LoanState.CURRENT;  //changed StAtE to State and lOaN_sTaTe to loanState
 	}
-
 	
-	public void cHeCk_OvEr_DuE() {
-		if (StAtE == lOaN_sTaTe.CURRENT &&
-			Calendar.gEtInStAnCe().gEt_DaTe().after(DaTe)) 
-			this.StAtE = lOaN_sTaTe.OVER_DUE;			
+	
+	//public void cHeCk_OvEr_DuE() {
+	public void checkOverDue() {   //changed cHeCk_OvEr_DuE to checkOverDue
+		//if (StAtE == lOaN_sTaTe.CURRENT &&
+		if (state == LoanState.CURRENT &&  //changed StAtE to state and lOaN_sTaTe to loanState
+			//Calendar.gEtInStAnCe().gEt_DaTe().after(DaTe)) 
+		        Calendar.getInstance().getDate().after(Date))  //changed gEtInStAnCe to getInstance, gEt_DaTe to getDate and DaTe to Date
+			//this.StAtE = lOaN_sTaTe.OVER_DUE;	
+			this.state = LoanState.OVERDUE;
 		
 	}
 
 	
-	public boolean Is_OvEr_DuE() {
-		return StAtE == lOaN_sTaTe.OVER_DUE;
+	//public boolean Is_OvEr_DuE() {
+	public boolean isOVERDUE() {   //changed Is_OvEr_DuE to isOVERDUE
+		//return StAtE == lOaN_sTaTe.OVER_DUE;
+		return state == LoanState.OVERDUE;   //renamed StAtE to state and lOaN_sTaTe.OVER_DUE to LoanState.OVERDUE
 	}
 
 	
-	public Integer GeT_Id() {
-		return LoAn_Id;
+	//public Integer GeT_Id() {
+	public Integer getId() {  //changed GeT_Id to getId
+		//return LoAn_Id;
+		return loanId;   //changed LoAn_Id to loanId
 	}
 
 
-	public Date GeT_DuE_DaTe() {
-		return DaTe;
+	//public Date GeT_DuE_DaTe() {
+	public Date getdueDate() {  //changed GeT_DuE_DaTe to getdueDate
+		//return DaTe;
+		return date;
 	}
 	
 	
