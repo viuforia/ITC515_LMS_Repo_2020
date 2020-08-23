@@ -30,22 +30,23 @@ public class Loan implements Serializable {
 		//this.LoAn_Id = loanId; 
 		this.loanId = loanId;  //renamed LoAn_Id to loanId
 		//this.BoOk = bOoK;
-		this.Book = book;  //changed BoOk to Book and bOoK to book
+		this.book = book;  //changed BoOk to book and bOoK to book
 		//this.MeMbEr = mEmBeR;
-		this.Member = member;  //changed MeMbEr to Member and mEmBeR to member
+		this.member = member;  //changed MeMbEr to member and mEmBeR to member
 		//this.date = DuE_dAtE;
-		this.Date = dueDate;  //changed date to Date and DuE_dAtE to dueDate
+		this.date = dueDate;  //changed DuE_dAtE to dueDate
 		//this.StAtE = lOaN_sTaTe.CURRENT;
-		this.State = LoanState.CURRENT;  //changed StAtE to State and lOaN_sTaTe to loanState
+		this.state = LoanState.CURRENT;  //changed StAtE to state and lOaN_sTaTe to loanState
 	}
 	
 	
 	//public void cHeCk_OvEr_DuE() {
 	public void checkOverDue() {   //changed cHeCk_OvEr_DuE to checkOverDue
 		//if (StAtE == lOaN_sTaTe.CURRENT &&
-		if (state == LoanState.CURRENT &&  //changed StAtE to state and lOaN_sTaTe to loanState
+		if { (state == LoanState.CURRENT &&  //changed StAtE to state and lOaN_sTaTe to loanState
 			//Calendar.gEtInStAnCe().gEt_DaTe().after(DaTe)) 
-		        Calendar.getInstance().getDate().after(Date))  //changed gEtInStAnCe to getInstance, gEt_DaTe to getDate and DaTe to Date
+		        Calendar.getInstance().getDate().after(date))  //changed gEtInStAnCe to getInstance, gEt_DaTe to getDate and DaTe to date
+		   }//
 			//this.StAtE = lOaN_sTaTe.OVER_DUE;	
 			this.state = LoanState.OVERDUE;
 		
