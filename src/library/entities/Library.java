@@ -243,10 +243,18 @@ public class Library implements Serializable {
 	}
 
 	
-	public Book gEt_BoOk(int bookId) {
-		if (CaTaLoG.containsKey(bookId)) 
-			return CaTaLoG.get(bookId);		
-		return null;
+	// public Book gEt_BoOk(int bookId) {
+	public Book getLibraryBook(int bookId) { // method name change gEt_BoOk to getLibraryBook
+		//if (CaTaLoG.containsKey(bookId)) 
+			//return CaTaLoG.get(bookId);		
+		//return null;
+		
+		if (bookCatalogs.containsKey(bookId)){  //Reactor the if condition block
+			return bookCatalogs.get(bookId);
+		}else {
+			return null;
+		}
+		
 	}
 
 	
