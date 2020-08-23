@@ -95,11 +95,11 @@ public class Calendar {
 	public synchronized long getDaysDifference(Date targetDate) {   //changed GeT_DaYs_DiFfErEnCe to getDaysDifference
 		
 		//long Diff_Millis = gEt_DaTe().getTime() - targetDate.getTime();
-		long diff_millis = getDate().getTime() - targetDate.getTime();  //changed the Diff_Millis to diff_milis and gEt_DaTe to getDate
+		long diffmillis = getDate().getTime() - targetDate.getTime();  //changed the Diff_Millis to diffmilis and gEt_DaTe to getDate
 	    //long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
-	    long diff_days = TimeUnit.Days.convert(diff_millis, TimeUnit.MILLISECONDS);  //changed diff_days and DAYS to days
+	    long diffdays = TimeUnit.Days.convert(diff_millis, TimeUnit.MILLISECONDS);  //changed diffdays and DAYS to days
 	    //return Diff_Days;
-	    return diff_days;  //changed Diff_Days to diff_days
+	    return diffdays;  //changed Diff_Days to diffdays
 	}
 
 }
