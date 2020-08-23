@@ -376,8 +376,8 @@ public class Library implements Serializable {
 		Book book  = currentBookLoan.getBook(); // method caller change GeT_BoOk to getBook
 		
 		// double oVeR_DuE_FiNe = CaLcUlAtE_OvEr_DuE_FiNe(cUrReNt_LoAn);
-		double overDueFineAmount = calculateLoanFineAmount(currentBookLoan); // variable and method name change oVeR_DuE_FiNe, CaLcUlAtE_OvEr_DuE_FiNe to
-																			 // overDueFineAmount,calculateLoanFineAmount 			
+		double overDueFineAmount = calculateOverDueFineAmount(currentBookLoan); // variable and method name change oVeR_DuE_FiNe, CaLcUlAtE_OvEr_DuE_FiNe to
+										        // overDueFineAmount,calculateOverDueFineAmount 			
 					
 		//mEmBeR.AdD_FiNe(oVeR_DuE_FiNe);	
 		libraryMember.addFine(overDueFineAmount); // method caller name change AdD_FiNe to addFine
@@ -405,10 +405,13 @@ public class Library implements Serializable {
 	}
 
 
-	public void cHeCk_CuRrEnT_LoAnS() {
-		for (Loan lOaN : CuRrEnT_LoAnS.values()) 
-			lOaN.cHeCk_OvEr_DuE();
-				
+	// public void cHeCk_CuRrEnT_LoAnS() {
+	public void setBookOverDueState() {
+		//for (Loan lOaN : CuRrEnT_LoAnS.values()) 
+			//lOaN.cHeCk_OvEr_DuE();
+		for (Loan bookLoan : currentBookLoans.values()) { // object instance name change lOaN to bookLoan and add curly braces
+			bookLoan.setOverDueState(); // caller method name change cHeCk_OvEr_DuE to setOverDueState
+		} 		
 	}
 
 
