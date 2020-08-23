@@ -1,14 +1,32 @@
+/***********************************************************************
+ * @Author   		 		:Harsha_Dilup_Kumara - hrajap04@student.csu.edu.au
+ * @Mediator 		 		:Niharika_Gavvala
+ * @Reviewer 		 		:Chelaka_Fernando 
+ * @Lecturer 		 		:Recep_Ulusoy
+ * @File_Created_Date       		:27/07/2020
+ * @File_Last_Update_Date 		:23/08/2020
+ ***********************************************************************/
+
 package library.borrowbook;
 import java.util.Scanner;
 
 
 public class BorrowBookUI {
 	
-	public static enum uI_STaTe { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	//public static enum uI_STaTe { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, RESTRICTED, 
+				     SCANNING, IDENTIFIED, FINALISING, 
+				     COMPLETED, CANCELLED }; // enum change uI_STaTe to UiState
 
-	private bORROW_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_STaTe StaTe;
+	//private bORROW_bOOK_cONTROL CoNtRoL;
+	private BorrowBookControl borrowBookControl; // instance class name change bORROW_bOOK_cONTROL BorrowBookControl
+												 // instance name change CoNtRoL borrowBookControl
+	
+	//private Scanner InPuT; 
+	private Scanner inputReader; // name of scanner object change InPuT to inputReader
+	
+	// private uI_STaTe StaTe; 
+	private UiState bookUiStaTe; // change UIState enum variable StaTe to bookUiStaTe
 
 	
 	public BorrowBookUI(bORROW_bOOK_cONTROL control) {
