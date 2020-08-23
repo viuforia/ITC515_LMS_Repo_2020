@@ -192,37 +192,69 @@ public class Library implements Serializable {
 		return bookCatalogsList; 
 	}
 
-
-	public List<Loan> lISt_CuRrEnT_LoAnS() {
-		return new ArrayList<Loan>(CuRrEnT_LoAnS.values());
+	//public List<Loan> lISt_CuRrEnT_LoAnS() {
+	public List<Loan> getCurrentBookingLoanList() {  // method name change to lISt_CuRrEnT_LoAnS getCurrentBookingLoanList
+		//return new ArrayList<Loan>(CuRrEnT_LoAnS.values());
+		Collection<Loan> currentBookingLoanValues = currentBookLoans.values(); 
+		ArrayList<Loan> currentBookingLoanList = new ArrayList<>(currentBookingLoanValues);  // Simplified the code and return the books loan list
+		return currentBookingLoanList;
 	}
 
 
-	public Member aDd_MeMbEr(String lastName, String firstName, String email, int phoneNo) {		
-		Member member = new Member(lastName, firstName, email, phoneNo, gEt_NeXt_MeMbEr_Id());
-		MeMbErS.put(member.GeT_ID(), member);		
+	//public Member aDd_MeMbEr(String lastName, String firstName, String email, int phoneNo) {	
+	public Member addLibraryMember(String lastName, String firstName, String email, int phoneNo) {  // Method name aDd_MeMbEr change to addLibraryMember
+		//Member member = new Member(lastName, firstName, email, phoneNo, gEt_NeXt_MeMbEr_Id());
+		int newMemberId = getNextMemberId(); // get next member id
+		Member member = new Member(lastName, firstName, email, phoneNo, newMemberId); // Simplified the code of creating member object
+		
+		//MeMbErS.put(member.GeT_ID(), member);	
+		int memberId = member.getMemberId(); // method name GeT_ID change to getMemberId
+		libraryMembers.put(memberId, member);
+		
 		return member;
 	}
 
-	
-	public Book aDd_BoOk(String a, String t, String c) {		
-		Book b = new Book(a, t, c, gEt_NeXt_BoOk_Id());
-		CaTaLoG.put(b.gEtId(), b);		
-		return b;
+	// public Book aDd_BoOk(String a, String t, String c) {	
+	public Book addBook(String author, String title, String callNumber) {	// method name aDd_BoOk change to addBook and method parameter name into meaningful names		
+		//Book b = new Book(a, t, c, gEt_NeXt_BoOk_Id());
+		int nextBookId = getNextBookId();
+		Book book = new Book(author, title, callNumber,nextBookId); // simplified the code by creating next book id variable
+		
+		//CaTaLoG.put(b.gEtId(), b);	
+		int bookId = book.getId();
+		bookCatalogs.put(bookId, book);	// simplified the code by creating new book id by calling getId method
+		
+		//return b;
+		return book; // object instance update b to book
 	}
 
 	
-	public Member gEt_MeMbEr(int memberId) {
-		if (MeMbErS.containsKey(memberId)) 
-			return MeMbErS.get(memberId);
-		return null;
+	//public Member gEt_MeMbEr(int memberId) {
+	public Member getLibraryMember(int memberId) { // method name change gEt_MeMbEr to getLibraryMember
+		//if (MeMbErS.containsKey(memberId)) 
+			//return MeMbErS.get(memberId);
+		//return null;
+		
+		if (libraryMembers.containsKey(memberId)){ //Reactor the if condition block
+			return libraryMembers.get(memberId);
+		}else {
+			return null;
+		}
 	}
 
 	
-	public Book gEt_BoOk(int bookId) {
-		if (CaTaLoG.containsKey(bookId)) 
-			return CaTaLoG.get(bookId);		
-		return null;
+	// public Book gEt_BoOk(int bookId) {
+	public Book getLibraryBook(int bookId) { // method name change gEt_BoOk to getLibraryBook
+		//if (CaTaLoG.containsKey(bookId)) 
+			//return CaTaLoG.get(bookId);		
+		//return null;
+		
+		if (bookCatalogs.containsKey(bookId)){  //Reactor the if condition block
+			return bookCatalogs.get(bookId);
+		}else {
+			return null;
+		}
+		
 	}
 
 	
