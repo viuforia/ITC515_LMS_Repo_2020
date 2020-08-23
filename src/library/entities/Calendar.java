@@ -99,7 +99,7 @@ public class Calendar {
 	    //long Diff_Days = TimeUnit.DAYS.convert(Diff_Millis, TimeUnit.MILLISECONDS);
 	    long diffDays = TimeUnit.Days.convert(diffMillis, TimeUnit.MILLISECONDS);  //changed diffDays and DAYS to days and Diff_Millis to diffMillis
 	    //return Diff_Days;
-	    return diffDays;  //changed Diff_Days to diffdays
+	    return diffDays;  //changed diffdays
 	}
 
 }
