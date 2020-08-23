@@ -229,42 +229,78 @@ public class Library implements Serializable {
 	}
 
 	
-	public Member gEt_MeMbEr(int memberId) {
-		if (MeMbErS.containsKey(memberId)) 
-			return MeMbErS.get(memberId);
-		return null;
+	//public Member gEt_MeMbEr(int memberId) {
+	public Member getLibraryMember(int memberId) { // method name change gEt_MeMbEr to getLibraryMember
+		//if (MeMbErS.containsKey(memberId)) 
+			//return MeMbErS.get(memberId);
+		//return null;
+		
+		if (libraryMembers.containsKey(memberId)){ //Reactor the if condition block
+			return libraryMembers.get(memberId);
+		}else {
+			return null;
+		}
 	}
 
 	
-	public Book gEt_BoOk(int bookId) {
-		if (CaTaLoG.containsKey(bookId)) 
-			return CaTaLoG.get(bookId);		
-		return null;
+	// public Book gEt_BoOk(int bookId) {
+	public Book getLibraryBook(int bookId) { // method name change gEt_BoOk to getLibraryBook
+		//if (CaTaLoG.containsKey(bookId)) 
+			//return CaTaLoG.get(bookId);		
+		//return null;
+		
+		if (bookCatalogs.containsKey(bookId)){  //Reactor the if condition block
+			return bookCatalogs.get(bookId);
+		}else {
+			return null;
+		}
+		
+	}
+
+	// public int gEt_LoAn_LiMiT() {
+	public int getLoanLimit() { // method name change gEt_LoAn_LiMiT to getLoanLimit
+		//return lOaNlImIt; // static final variable name lOaNlImIt to LOAN_LIMIT
+		return LOAN_LIMIT;
 	}
 
 	
-	public int gEt_LoAn_LiMiT() {
-		return lOaNlImIt;
-	}
-
-	
-	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
-		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
-			return false;
+	// public boolean cAn_MeMbEr_BoRrOw(Member member) {	
+	public boolean isCheckMemberCanBorrowBook(Member libraryMember) {	// method name change cAn_MeMbEr_BoRrOw	isCheckMemberCanBorrowBook
+		//if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
+			//return false;
 				
-		if (member.FiNeS_OwEd() >= maxFinesOwed) 
+		//if (member.FiNeS_OwEd() >= maxFinesOwed) 
+			//return false;
+		
+		//for (Loan loan : member.GeT_LoAnS()) 
+			//if (loan.Is_OvEr_DuE()) 
+				//return false;
+		
+		int currentLoans = libraryMember.getNumberOfCurrentLoans(); // Simplified the method call by declaring currentLoans variable
+		
+		if (currentLoans == LOAN_LIMIT ){ //Reactor the code with if condition block
 			return false;
-				
-		for (Loan loan : member.GeT_LoAnS()) 
-			if (loan.Is_OvEr_DuE()) 
+		}else if (libraryMember.getFinesOwed() >= MAX_FINE_OWNED){
+			return false;
+		}
+		
+		for (Loan loan : libraryMember.getLoans()){
+			if (loan.isOverDue()) {
 				return false;
-			
+			}
+		} 
+		
 		return true;
 	}
 
 	
-	public int gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(Member MeMbEr) {		
-		return lOaNlImIt - MeMbEr.gEt_nUmBeR_Of_CuRrEnT_LoAnS();
+	// public int gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(Member MeMbEr) { 
+	public int getNumberOfLoanRemainingForMember(Member member) { // Method name change gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr to getNumberOfLoanRemainingForMember	
+		//return lOaNlImIt - MeMbEr.gEt_nUmBeR_Of_CuRrEnT_LoAnS();
+		
+		int loanLimit = 0; // Reactor the code by declaring loanLimit variable
+		loanLimit = LOAN_LIMIT - member.getNumberOfCurrentLoans();
+		return loanLimit;
 	}
 
 	
