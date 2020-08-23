@@ -6,19 +6,35 @@ import library.entities.Book;
 import library.entities.Library;
 import library.entities.Loan;
 import library.entities.Member;
+/***********************************************************************
+ * @Author   		 	    :Chelaka_Fernando
+ * @Mediator 		 	    :Niharika_Gavvala
+ * @Reviewer 		 	    :Harsha_Dilup_Kumara
+ * @Lecturer 		 	    :Recep_Ulusoy
+ * @File_Created_Date       	    :27/07/2020
+ * @File_Last_Update_Date 	    :23/08/2020
+ ***********************************************************************/
 
-public class bORROW_bOOK_cONTROL {
+public class BorrowBookControl {
 	
-	private BorrowBookUI uI;
 	
-	private Library lIbRaRy;
-	private Member mEmBeR;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE sTaTe;
+	//private BorrowBookUI uI;
+	private BorrowBookUI ui;//Changed uI to ui
+	//private Library lIbRaRy;
+	private Library library;//changed lIbRaRy to library
+	//private Member mEmBeR;
+	private Member member;//changed mEmBeR to member
+	//private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	private enum ControlState { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };//changed CONTROL_STATE to ControlState
+	//private CONTROL_STATE sTaTe;
+	private ControlState state;//changed CONTROL_STATE to ControlState and sTaTe to state
 	
-	private List<Book> pEnDiNg_LiSt;
-	private List<Loan> cOmPlEtEd_LiSt;
-	private Book bOoK;
+	//private List<Book> pEnDiNg_LiSt;
+	private List<Book> pendingList;//changed pEnDiNg_LiSt to pendingList
+	//private List<Loan> cOmPlEtEd_LiSt;
+	private List<Loan> completedList;//changed cOmPlEtEd_LiSt to completedList
+	//private Book bOoK;
+	private Book book;//changed bOoK to book
 	
 	
 	public bORROW_bOOK_cONTROL() {
