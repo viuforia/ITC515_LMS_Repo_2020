@@ -257,9 +257,10 @@ public class Library implements Serializable {
 		
 	}
 
-	
-	public int gEt_LoAn_LiMiT() {
-		return lOaNlImIt;
+	// public int gEt_LoAn_LiMiT() {
+	public int getLoanLimit() { // method name change gEt_LoAn_LiMiT to getLoanLimit
+		//return lOaNlImIt; // static final variable name lOaNlImIt to LOAN_LIMIT
+		return LOAN_LIMIT;
 	}
 
 	
