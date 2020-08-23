@@ -26,7 +26,7 @@ public class BorrowBookUI {
 	private Scanner inputReader; // name of scanner object change InPuT to inputReader
 	
 	// private uI_STaTe StaTe; 
-	private UiState bookUiStaTe; // change UIState enum variable StaTe to bookUiStaTe
+	private UiState bookUiState; // change UIState enum variable StaTe to bookUiState
 
 	
 	public BorrowBookUI(bORROW_bOOK_cONTROL control) {
