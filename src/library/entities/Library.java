@@ -321,7 +321,7 @@ public class Library implements Serializable {
 		book.getBorrowBook(); // change method name called BoRrOw to getBorrowBook
 		
 		//LoAnS.put(loan.GeT_Id(), loan);
-		int currentLoanId = loan.GeT_Id(); // Simplified the code by creating new variable called currentLoanId
+		int currentLoanId = loan.getId(); // Simplified the code by creating new variable called currentLoanId
 		bookLoans.put(currentLoanId, loan);
 		
 		//CuRrEnT_LoAnS.put(book.gEtId(), loan);
