@@ -65,7 +65,7 @@ public class BorrowBookControl {
     }
 
     //public void SwIpEd(int mEmBeR_Id) {
-    public void swipedCard(int memberId) {//changed SwIpEd to swipedCard and mEmBeR_Id to memberId
+    public void swiped(int memberId) {//changed SwIpEd to swiped and mEmBeR_Id to memberId
         //if (!sTaTe.equals(CONTROL_STATE.READY)) {
         if (!state.equals(ControlState.READY)) {//changed sTaTe to state and CONTROL_STATE to ControlState
             throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
@@ -82,7 +82,7 @@ public class BorrowBookControl {
         //if (lIbRaRy.cAn_MeMbEr_BoRrOw(mEmBeR)) {
         if (library.isCheckMemberCanBorrowBook(member)) {//checked lIbRaRy to library and cAn_MeMbEr_BoRrOw to isCheckMemberCanBorrowBook
             //pEnDiNg_LiSt = new ArrayList<>();
-            pendingList = new ArrayList<>();//checked pEnDiNg_LiSt to pendingList
+            pendingList = new ArrayList<>();//changed pEnDiNg_LiSt to pendingList
             //uI.SeT_StAtE(BorrowBookUI.uI_STaTe.SCANNING);
             ui.setState(BorrowBookUI.UiState.SCANNING);//changed Ui to ui and SeT_StAtE to setState and uI_STaTe to UiState
             //sTaTe = CONTROL_STATE.SCANNING;
@@ -95,29 +95,43 @@ public class BorrowBookControl {
         }
     }
 
-    public void ScAnNeD(int bOoKiD) {
-        bOoK = null;
-        if (!sTaTe.equals(CONTROL_STATE.SCANNING)) {
+    //public void ScAnNeD(int bOoKiD) {
+    public void scannedBook(int bookId) {//changed ScAnNeD to scannedBook and bOoKiD to bookId
+        //bOoK = null;
+        book = null;//changed bOoK to book
+        //if (!sTaTe.equals(CONTROL_STATE.SCANNING)) {
+        if (!state.equals(ControlState.SCANNING)) {//changed sTaTe to state and CONTROL_STATE to ControlState
             throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
         }
 
-        bOoK = lIbRaRy.gEt_BoOk(bOoKiD);
-        if (bOoK == null) {
-            uI.DiSpLaY("Invalid bookId");
+        //bOoK = lIbRaRy.gEt_BoOk(bOoKiD);
+        book = library.getBookId(bookId);//Changed bOoK to book and lIbRaRy to library and gEt_BoOk to getBookId and bOoKiD to bookId
+        //if (bOoK == null) {
+        if (book == null) {//changed bOoK to book
+            //uI.DiSpLaY("Invalid bookId");
+            ui.display("Invalid bookId");//changed uI to ui and DiSpLaY to display
             return;
         }
-        if (!bOoK.iS_AvAiLaBlE()) {
-            uI.DiSpLaY("Book cannot be borrowed");
+        //if (!bOoK.iS_AvAiLaBlE()) {
+        if (!book.isAvailable()) {//changed bOoK to book and iS_AvAiLaBlE to isAvailable
+            //uI.DiSpLaY("Book cannot be borrowed");
+            ui.display("Book cannot be borrowed");//changed uI to ui and DiSpLaY to display
             return;
         }
-        pEnDiNg_LiSt.add(bOoK);
-        for (Book B : pEnDiNg_LiSt) {
-            uI.DiSpLaY(B.toString());
+        //pEnDiNg_LiSt.add(bOoK);
+        pendingList.add(book);//changed pEnDiNg_LiSt to pendingList and bOoK to book
+        //for (Book B : pEnDiNg_LiSt) {
+        for (Book B : pendingList) {//changed pEnDiNg_LiSt to pendingList
+            //uI.DiSpLaY(B.toString());
+            ui.display(B.toString());//changed uI to ui and DiSpLaY to display
         }
 
-        if (lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) {
-            uI.DiSpLaY("Loan limit reached");
-            CoMpLeTe();
+        //if (lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) {
+        if (library.getNumberOfLoanRemainingForMember(member) - pendingList.size() == 0) {//changed if (lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) to if (library.getNumberOfLoanRemainingForMember(member) - pendingList.size() == 0)
+            //uI.DiSpLaY("Loan limit reached");
+            ui.display("Loan limit reached");//changed uI to ui and DiSpLaY to display
+            //CoMpLeTe();
+            setComplete();//changed CoMpLeTe to setComplete
         }
     }
 
@@ -154,9 +168,12 @@ public class BorrowBookControl {
         sTaTe = CONTROL_STATE.COMPLETED;
     }
 
-    public void CaNcEl() {
-        uI.SeT_StAtE(BorrowBookUI.uI_STaTe.CANCELLED);
-        sTaTe = CONTROL_STATE.CANCELLED;
+    //public void CaNcEl() {
+    public void setCancel() {//changed CaNcEl to setCancel
+        //uI.SeT_StAtE(BorrowBookUI.uI_STaTe.CANCELLED);
+        ui.setState(BorrowBookUI.UiState.CANCELLED);//changed Ui to ui and SeT_StAtE to setState and uI_STaTe to UiState
+        //sTaTe = CONTROL_STATE.CANCELLED;
+        state = ControlState.CANCELLED;//changed sTaTe to state and CONTROL_STATE to ControlState
     }
 
 }
