@@ -376,8 +376,8 @@ public class Library implements Serializable {
 		Book book  = currentBookLoan.getBook(); // method caller change GeT_BoOk to getBook
 		
 		// double oVeR_DuE_FiNe = CaLcUlAtE_OvEr_DuE_FiNe(cUrReNt_LoAn);
-		double overDueFineAmount = calculateLoanFineAmount(currentBookLoan); // variable and method name change oVeR_DuE_FiNe, CaLcUlAtE_OvEr_DuE_FiNe to
-																			 // overDueFineAmount,calculateLoanFineAmount 			
+		double overDueFineAmount = calculateOverDueFineAmount(currentBookLoan); // variable and method name change oVeR_DuE_FiNe, CaLcUlAtE_OvEr_DuE_FiNe to
+										        // overDueFineAmount,calculateOverDueFineAmount 			
 					
 		//mEmBeR.AdD_FiNe(oVeR_DuE_FiNe);	
 		libraryMember.addFine(overDueFineAmount); // method caller name change AdD_FiNe to addFine
@@ -405,22 +405,35 @@ public class Library implements Serializable {
 	}
 
 
-	public void cHeCk_CuRrEnT_LoAnS() {
-		for (Loan lOaN : CuRrEnT_LoAnS.values()) 
-			lOaN.cHeCk_OvEr_DuE();
-				
+	// public void cHeCk_CuRrEnT_LoAnS() {
+	public void setBookOverDueState() {
+		//for (Loan lOaN : CuRrEnT_LoAnS.values()) 
+			//lOaN.cHeCk_OvEr_DuE();
+		for (Loan bookLoan : currentBookLoans.values()) { // object instance name change lOaN to bookLoan and add curly braces
+			bookLoan.setOverDueState(); // caller method name change cHeCk_OvEr_DuE to setOverDueState
+		} 		
 	}
 
 
-	public void RePaIr_BoOk(Book cUrReNt_BoOk) {
-		if (DaMaGeD_BoOkS.containsKey(cUrReNt_BoOk.gEtId())) {
-			cUrReNt_BoOk.RePaIr();
-			DaMaGeD_BoOkS.remove(cUrReNt_BoOk.gEtId());
-		}
-		else 
+	// public void RePaIr_BoOk(Book cUrReNt_BoOk) {
+	public void repairDamageBook(Book damageBook) { // method name and method parameter change RePaIr_BoOk,cUrReNt_BoOk  
+													// to repairDamageBook,damageBook
+		
+		//if (DaMaGeD_BoOkS.containsKey(cUrReNt_BoOk.gEtId())) {
+		if (damagedBooks.containsKey(damageBook.getId())) { // list name change DaMaGeD_BoOkS to damagedBooks and
+															// method caller name change gEtId to getId 
+			
+			//cUrReNt_BoOk.RePaIr();
+			damageBook.repairBook(); // mathod caller name change RePaIr to repairBook
+			
+			//DaMaGeD_BoOkS.remove(cUrReNt_BoOk.gEtId());
+			damagedBooks.remove(damageBook.getId()); // method caller name change gEtId to getId 
+			
+		}else { // add curly braces to else condition
 			throw new RuntimeException("Library: repairBook: book is not damaged");
-		
-		
+		}
+		//else 
+			//throw new RuntimeException("Library: repairBook: book is not damaged");
 	}
 	
 	
