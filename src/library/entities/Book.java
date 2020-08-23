@@ -120,7 +120,7 @@ public class Book implements Serializable {
     }
 
     //public void RePaIr() {
-    public void repair() {//changed RePaIr to repair
+    public void repairBook() {//changed RePaIr to repairBook
         //if (StAtE.equals(sTaTe.DAMAGED)) 
         if (state.equals(State.DAMAGED)) { //changed StAtE to state and sTaTe to State and added the curly brackets for the if condition
             //StAtE = sTaTe.AVAILABLE;
