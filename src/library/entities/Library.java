@@ -345,15 +345,25 @@ public class Library implements Serializable {
 	}
 
 	
-	public double CaLcUlAtE_OvEr_DuE_FiNe(Loan LoAn) {
-		if (LoAn.Is_OvEr_DuE()) {
-			long DaYs_OvEr_DuE = Calendar.gEtInStAnCe().GeT_DaYs_DiFfErEnCe(LoAn.GeT_DuE_DaTe());
-			double fInE = DaYs_OvEr_DuE * FiNe_PeR_DaY;
-			return fInE;
+	// public double CaLcUlAtE_OvEr_DuE_FiNe(Loan LoAn) {
+	public double calculateOverDueFineAmount(Loan bookLoan) { // method name changed CaLcUlAtE_OvEr_DuE_FiNe calculateOverDueFineAmount
+		
+		double fineAmount = 0.0; // Simplified the code by declaring return value variable called fineAmount
+		
+		//if (LoAn.Is_OvEr_DuE()) {
+		if (bookLoan.isOverDue()) { // method name change  Is_OvEr_DuE to isOverDue
+			
+			//long DaYs_OvEr_DuE = Calendar.gEtInStAnCe().GeT_DaYs_DiFfErEnCe(LoAn.GeT_DuE_DaTe());
+			long daysOverDue = Calendar.getInstance().getDaysDifference(bookLoan.getDueDate()); // method names and variable name changes gEtInStAnCe,GeT_DuE_DaTe,
+																							    //DaYs_OvEr_DuE  to getInstance,getDueDate,daysOverDue
+			
+			//double fInE = DaYs_OvEr_DuE * FiNe_PeR_DaY;
+		     fineAmount = daysOverDue * FINE_PER_DAY; // variable name update FiNe_PeR_DaY to FINE_PER_DAY
+			
+			//return fInE;
 		}
-		return 0.0;		
+		return fineAmount;		
 	}
-
 
 	public void DiScHaRgE_LoAn(Loan cUrReNt_LoAn, boolean iS_dAmAgEd) {
 		Member mEmBeR = cUrReNt_LoAn.GeT_MeMbEr();
