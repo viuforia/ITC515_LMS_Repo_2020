@@ -264,17 +264,32 @@ public class Library implements Serializable {
 	}
 
 	
-	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
-		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
-			return false;
+	// public boolean cAn_MeMbEr_BoRrOw(Member member) {	
+	public boolean isCheckMemberCanBorrowBook(Member libraryMember) {	// method name change cAn_MeMbEr_BoRrOw	isCheckMemberCanBorrowBook
+		//if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
+			//return false;
 				
-		if (member.FiNeS_OwEd() >= maxFinesOwed) 
+		//if (member.FiNeS_OwEd() >= maxFinesOwed) 
+			//return false;
+		
+		//for (Loan loan : member.GeT_LoAnS()) 
+			//if (loan.Is_OvEr_DuE()) 
+				//return false;
+		
+		int currentLoans = libraryMember.getNumberOfCurrentLoans(); // Simplified the method call by declaring currentLoans variable
+		
+		if (currentLoans == LOAN_LIMIT ){ //Reactor the code with if condition block
 			return false;
-				
-		for (Loan loan : member.GeT_LoAnS()) 
-			if (loan.Is_OvEr_DuE()) 
+		}else if (libraryMember.getFinesOwed() >= MAX_FINE_OWNED){
+			return false;
+		}
+		
+		for (Loan loan : libraryMember.getLoans()){
+			if (loan.isOverDue()) {
 				return false;
-			
+			}
+		} 
+		
 		return true;
 	}
 
