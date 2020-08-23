@@ -102,7 +102,7 @@ public class Book implements Serializable {
     }
 
     //public void ReTuRn(boolean DaMaGeD) {
-    public void getReturnBook(boolean Damaged) {//changed ReTuRn to Return and DaMaGeD to  Damaged
+    public void returnBook(boolean Damaged) {//changed ReTuRn to returnBook and DaMaGeD to  Damaged
         //if (StAtE.equals(sTaTe.ON_LOAN))
         if (state.equals(State.ON_LOAN)) {//changed StAtE to state and sTaTe to State and added the curly brackets for the if condition
             //if (DaMaGeD) 
@@ -120,7 +120,7 @@ public class Book implements Serializable {
     }
 
     //public void RePaIr() {
-    public void Repair() {//changed RePaIr to Repair
+    public void repairBook() {//changed RePaIr to repairBook
         //if (StAtE.equals(sTaTe.DAMAGED)) 
         if (state.equals(State.DAMAGED)) { //changed StAtE to state and sTaTe to State and added the curly brackets for the if condition
             //StAtE = sTaTe.AVAILABLE;
