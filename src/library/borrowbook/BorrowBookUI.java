@@ -182,8 +182,10 @@ public class BorrowBookUI {
 		}		
 	}
 
-	public void DiSpLaY(Object object) {
-		OuTpUt(object);		
+	//public void DiSpLaY(Object object) {
+	public void displayObject(Object object) { // method name DiSpLaY to displayObject
+		//OuTpUt(object);	
+		displayOutPut(object); // method caller change OuTpUt to displayOutPut
 	}
 
 
