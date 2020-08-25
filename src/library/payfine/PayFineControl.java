@@ -20,12 +20,13 @@ public class PayFineControl {//changed pAY_fINE_cONTROL to PayFineControl
     private Member MeMbEr;
     private Member member;//changed MeMbEr to member
 
-
-	public pAY_fINE_cONTROL() {
-		this.LiBrArY = Library.GeTiNsTaNcE();
-		StAtE = cOnTrOl_sTaTe.INITIALISED;
-	}
-	
+    //public pAY_fINE_cONTROL() {
+    public PayFineControl() {//changed pAY_fINE_cONTROL to PayFineControl
+        //this.LiBrArY = Library.GeTiNsTaNcE();
+        this.library = Library.getInstance();//changed LiBrArY to library and GeTiNsTaNcE to getInstance
+        //StAtE = cOnTrOl_sTaTe.INITIALISED;
+        state = ControlState.INITIALISED;//changed StAtE to state and cOnTrOl_sTaTe to ControlState
+    }
 	
 	public void SeT_uI(PayFineUI uI) {
 		if (!StAtE.equals(cOnTrOl_sTaTe.INITIALISED)) {
