@@ -4,7 +4,7 @@
  * @Reviewer 		 		:Chelaka_Fernando 
  * @Lecturer 		 		:Recep_Ulusoy
  * @File_Created_Date       		:27/07/2020
- * @File_Last_Update_Date 		:23/08/2020
+ * @File_Last_Update_Date 		:25/08/2020
  ***********************************************************************/
 
 package library.borrowbook;
@@ -70,80 +70,117 @@ public class BorrowBookUI {
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Borrow Book Use Case UI\n");
+	//public void RuN() {
+	public void runBorrowBook() { // method name change RuN to runBorrowBook
+		
+		//OuTpUt("Borrow Book Use Case UI\n");
+		displayOutPut("Borrow Book Use Case UI\n"); // method caller change OuTpUt to displayOutPut
 		
 		while (true) {
 			
-			switch (StaTe) {			
+			//switch (StaTe) {	
+			switch (borrowBookStaTe) {	 // conditional variable name change StaTe to borrowBookStaTe
 			
 			case CANCELLED:
-				OuTpUt("Borrowing Cancelled");
+				//OuTpUt("Borrowing Cancelled");
+				displayOutPut("Borrowing Cancelled");  // method caller change OuTpUt to displayOutPut
 				return;
-
 				
 			case READY:
-				String MEM_STR = iNpUT("Swipe member card (press <enter> to cancel): ");
-				if (MEM_STR.length() == 0) {
-					CoNtRoL.CaNcEl();
+				//String MEM_STR = iNpUT("Swipe member card (press <enter> to cancel): ");
+				String memberInputString = getinput("Swipe member card (press <enter> to cancel): "); // method name change iNpUT to getinput
+				
+				
+				//if (MEM_STR.length() == 0) {
+				if (memberInputString.length() == 0) { // variable name change MEM_STR to memberInputString
+					//CoNtRoL.CaNcEl();
+					borrowBookControl.setCancel(); //method name change CaNcEl to setCancel
+												   // instance name change CoNtRoL to borrowBookControl
 					break;
 				}
+				
 				try {
-					int MeMbEr_Id = Integer.valueOf(MEM_STR).intValue();
-					CoNtRoL.SwIpEd(MeMbEr_Id);
+					//int MeMbEr_Id = Integer.valueOf(MEM_STR).intValue();
+					int memberId = Integer.valueOf(memberInputString).intValue(); // variable name change MeMbEr_Id to memberId
+					
+					//CoNtRoL.SwIpEd(MeMbEr_Id);
+					borrowBookControl.swipedCard(memberId); // method name change SwIpEd to swipedCard
+					
+				} catch (NumberFormatException e) {
+					// OuTpUt("Invalid Member Id");
+					displayOutPut("Invalid Member Id"); // method caller change OuTpUt to displayOutPut
 				}
-				catch (NumberFormatException e) {
-					OuTpUt("Invalid Member Id");
-				}
+				
 				break;
 
 				
 			case RESTRICTED:
-				iNpUT("Press <any key> to cancel");
-				CoNtRoL.CaNcEl();
+				// iNpUT("Press <any key> to cancel");
+				getinput("Press <any key> to cancel"); // method name change iNpUT to getinput
+					
+				//CoNtRoL.CaNcEl();
+				borrowBookControl.setCancel(); //instance name change CoNtRoL to borrowBookControl
 				break;
 			
 				
 			case SCANNING:
-				String BoOk_StRiNg_InPuT = iNpUT("Scan Book (<enter> completes): ");
-				if (BoOk_StRiNg_InPuT.length() == 0) {
-					CoNtRoL.CoMpLeTe();
+				//String BoOk_StRiNg_InPuT = iNpUT("Scan Book (<enter> completes): ");
+				String inputBookingString = getinput("Scan Book (<enter> completes): "); // method name change iNpUT to getinput
+				
+				//if (BoOk_StRiNg_InPuT.length() == 0) {
+				if (inputBookingString.length() == 0) {
+					//CoNtRoL.CoMpLeTe();
+					borrowBookControl.setComplete(); // variable,method name change CoMpLeTe, CoNtRoL to setComplete,borrowBookControl
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(BoOk_StRiNg_InPuT).intValue();
-					CoNtRoL.ScAnNeD(BiD);
+					//int BiD = Integer.valueOf(BoOk_StRiNg_InPuT).intValue();
+					int bookId = Integer.valueOf(inputBookingString).intValue(); // variable name change BiD to bookId
+					//CoNtRoL.ScAnNeD(BiD);
+					borrowBookControl.scannedBook(bookId);
 					
 				} catch (NumberFormatException e) {
-					OuTpUt("Invalid Book Id");
+					// OuTpUt("Invalid Book Id");
+					displayOutPut("Invalid Book Id"); // method caller change OuTpUt to displayOutPut
 				} 
 				break;
 					
 				
 			case FINALISING:
-				String AnS = iNpUT("Commit loans? (Y/N): ");
-				if (AnS.toUpperCase().equals("N")) {
-					CoNtRoL.CaNcEl();
-					
+				//String AnS = iNpUT("Commit loans? (Y/N): ");
+				String userAnswer = getinput("Commit loans? (Y/N): "); // method name change iNpUT to getinput
+				                                                      // variable name change AnS to userAnswer
+				
+				// if (AnS.toUpperCase().equals("N")) {
+				if (userAnswer.toUpperCase().equals("N")) { 
+					//CoNtRoL.CaNcEl();
+					borrowBookControl.setCancel(); // method name change CaNcEl to setCancel
+												  // instance name change CoNtRoL to borrowBookControl
 				} else {
-					CoNtRoL.CoMmIt_LoAnS();
-					iNpUT("Press <any key> to complete ");
+					// CoNtRoL.CoMmIt_LoAnS();
+					borrowBookControl.commitLoans();   // instance name change CoNtRoL to borrowBookControl
+													   // method name change CoMmIt_LoAnS to commitLoans
+					
+					//iNpUT("Press <any key> to complete ");
+					getinput("Press <any key> to complete "); // method name change iNpUT to getinput
 				}
 				break;
 				
 				
 			case COMPLETED:
-				OuTpUt("Borrowing Completed");
+				//OuTpUt("Borrowing Completed");
+				displayOutPut("Borrowing Completed"); // method caller change OuTpUt to displayOutPut
 				return;
 	
 				
 			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + StaTe);			
+				//OuTpUt("Unhandled state");
+				displayOutPut("Unhandled state"); // method caller change OuTpUt to displayOutPut
+				//throw new RuntimeException("BorrowBookUI : unhandled state :" + StaTe);			
+				throw new RuntimeException("BorrowBookUI : unhandled state :" + borrowBookStaTe);	// Variable name change StaTe to borrowBookStaTe
 			}
 		}		
 	}
-
 
 	public void DiSpLaY(Object object) {
 		OuTpUt(object);		
