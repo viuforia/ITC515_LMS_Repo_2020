@@ -53,24 +53,36 @@ public class FixBookControl {//changed fIX_bOOK_cONTROL to FixBookControl
         state = ControlState.READY;//changed StAtE to state and CoNtRoL_StAtE to ControlState
     }
 
-    public void BoOk_ScAnNeD(int BoOkId) {
-        if (!StAtE.equals(CoNtRoL_StAtE.READY)) {
+    //public void BoOk_ScAnNeD(int BoOkId) {
+    public void scanBook(int bookId) {//changed BoOk_ScAnNeD to scanBook and BoOkId to bookId
+        //if (!StAtE.equals(CoNtRoL_StAtE.READY)) {
+        if (!state.equals(ControlState.READY)) {//changed StAtE to state and CoNtRoL_StAtE to ControlState
             throw new RuntimeException("FixBookControl: cannot call bookScanned except in READY state");
         }
 
-        CuRrEnT_BoOk = LiBrArY.gEt_BoOk(BoOkId);
+        //CuRrEnT_BoOk = LiBrArY.gEt_BoOk(BoOkId);
+        currentBook = library.getLibraryBook(bookId);//changed CuRrEnT_BoOk = LiBrArY.gEt_BoOk(BoOkId) to currentBook = library.getLibraryBook(bookId)
 
-        if (CuRrEnT_BoOk == null) {
-            Ui.dIsPlAy("Invalid bookId");
+        //if (CuRrEnT_BoOk == null) {
+        if (currentBook == null) {    //changed CuRrEnT_BoOk to currentBook
+
+            //Ui.dIsPlAy("Invalid bookId");
+            ui.display("Invalid bookId");//changed Ui to ui and dIsPlAy to display
             return;
         }
-        if (!CuRrEnT_BoOk.iS_DaMaGeD()) {
-            Ui.dIsPlAy("Book has not been damaged");
+        //if (!CuRrEnT_BoOk.iS_DaMaGeD()) {
+        if (!currentBook.isDamaged()) {//changed CuRrEnT_BoOk to currentBook and iS_DaMaGeD to isDamaged
+
+            //Ui.dIsPlAy("Book has not been damaged");
+            ui.display("Book has not been damaged");//changed Ui to ui and dIsPlAy to display
             return;
         }
-        Ui.dIsPlAy(CuRrEnT_BoOk.toString());
-        Ui.SeT_StAtE(FixBookUI.uI_sTaTe.FIXING);
-        StAtE = CoNtRoL_StAtE.FIXING;
+        //Ui.dIsPlAy(CuRrEnT_BoOk.toString());
+        ui.display(currentBook.toString());//changed Ui to ui and dIsPlAy to display and CuRrEnT_BoOk to currentBook
+        //Ui.SeT_StAtE(FixBookUI.uI_sTaTe.FIXING);
+        ui.setState(FixBookUI.UiState.FIXING);//changed SeT_StAtE to setState and uI_STaTe to UiState
+        //StAtE = CoNtRoL_StAtE.FIXING;
+        state = ControlState.FIXING;//changed StAtE to state and CoNtRoL_StAtE to ControlState
     }
 
     public void FiX_BoOk(boolean mUsT_FiX) {
