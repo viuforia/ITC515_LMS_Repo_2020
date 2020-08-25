@@ -78,29 +78,42 @@ public class Loan implements Serializable {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(LoAn_Id).append("\n")
-		  .append("  Borrower ").append(MeMbEr.GeT_ID()).append(" : ")
-		  .append(MeMbEr.GeT_LaSt_NaMe()).append(", ").append(MeMbEr.GeT_FiRsT_NaMe()).append("\n")
-		  .append("  Book ").append(BoOk.gEtId()).append(" : " )
-		  .append(BoOk.gEtTiTlE()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(DaTe)).append("\n")
-		  .append("  State: ").append(StAtE);		
+		//sb.append("Loan:  ").append(LoAn_Id).append("\n")
+		sb.append("Loan:  ").append(loanId).append("\n")   //changed the LoAn_Id to loanId
+		  //.append("  Borrower ").append(MeMbEr.GeT_ID()).append(" : ")
+		  .append("  Borrower ").append(member.getId()).append(" : ")   //renamed MeMbEr.GeT_ID() to member.getId()
+		 // .append(MeMbEr.GeT_LaSt_NaMe()).append(", ").append(MeMbEr.GeT_FiRsT_NaMe()).append("\n")
+		  .append(member.getlastName()).append(", ").append(member.getfirstName()).append("\n")   //changed the MeMbEr.GeT_FiRsT_NaMe() to member.getfirstName() and MeMbEr.GeT_LaSt_NaMe()) to member.getlastName() 
+		 // .append("  Book ").append(BoOk.gEtId()).append(" : " )
+		  .append("  Book ").append(book.getId()).append(" : " ) //changed BoOk.gEtId() to book.getId()
+		 // .append(BoOk.gEtTiTlE()).append("\n")
+		  .append(Book.getTitle()).append("\n")   //changed BoOk to book and gEtTiTlE() to getTitle
+		 // .append("  DueDate: ").append(sdf.format(DaTe)).append("\n")
+		  .append("  DueDate: ").append(sdf.format(Date)).append("\n")  //changed DaTe to date
+		//  .append("  State: ").append(StAtE);	
+		  .append("  State: ").append(state); //changed StAtE to state
 		return sb.toString();
 	}
 
 
-	public Member GeT_MeMbEr() {
-		return MeMbEr;
+	//public Member GeT_MeMbEr() {
+	public Member getMember() { //changed GeT_MeMbEr to getMember
+		//return MeMbEr;
+		return member;  //changed MeMbEr to member
 	}
 
 
-	public Book GeT_BoOk() {
-		return BoOk;
+	//public Book GeT_BoOk() {
+	public Book getBook() {  //changed GeT_BoOk to getBook
+		//return BoOk;
+		return book;   //changed BoOk to book
 	}
 
 
-	public void DiScHaRgE() {
-		StAtE = lOaN_sTaTe.DISCHARGED;		
+	//public void DiScHaRgE() {
+	public void discharge() {  //changed DiScHaRgE to discharge
+		//StAtE = lOaN_sTaTe.DISCHARGED;
+		state = LoanState.DISCHARGED;  //changed StAtE to state and lOaN_sTaTe to LoanState
 	}
 
 }
