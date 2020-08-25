@@ -17,7 +17,7 @@ import java.util.Map;
  * @File_Last_Update_Date :21/08/2020
  * *********************************************************************
  */
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
 @SuppressWarnings("serial")
 public class Member implements Serializable {
 
@@ -37,7 +37,7 @@ public class Member implements Serializable {
     //private Map<Integer, Loan> cUrReNt_lOaNs;
     private Map<Integer, Loan> currentLoans;
 
-    //Member constructor -- Authored by Niharika_Gavvala
+    //Member constructor -- Authored by Niharika_Gavvala - Mediator by Chelaka_Fernando
     //public Member(String lAsT_nAmE, String fIrSt_nAmE, String eMaIl_aDdReSs, int pHoNe_nUmBeR, int mEmBeR_iD) 
     public Member(String lastName, String firstName, String emailAddress, int phoneNumber, int memberId) {  //lAsT_nAmE changed to lastName, fIrSt_nAmE changed to firstName, eMaIl_aDdReSs changed to emailAddress, pHoNe_nUmBeR changed to phoneNumber and mEmBeR_iD to memberId   
 
@@ -54,7 +54,7 @@ public class Member implements Serializable {
         //this.cUrReNt_lOaNs = new HashMap<>();
         this.currentLoans = new HashMap<>();   //cUrReNt_lOaNs changed to currentLoans
     }
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
 
     public String toString() {
 
@@ -80,14 +80,14 @@ public class Member implements Serializable {
         return sb.toString();
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public int GeT_ID() {
     public int getMemberId() {//changed GeT_ID to getMemberId
         //return MeMbEr_Id;
         return memberId;//changed MeMbEr_Id to memberId
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public List<Loan> GeT_LoAnS() {
     public List<Loan> getLoans() {
         //return new ArrayList<Loan>(cUrReNt_lOaNs.values());
@@ -96,21 +96,21 @@ public class Member implements Serializable {
         return currentBookingLoanList;
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public int gEt_nUmBeR_Of_CuRrEnT_LoAnS() {
     public int getNumberOfCurrentLoans() {//changed gEt_nUmBeR_Of_CuRrEnT_LoAnS to getNumberOfCurrentLoans
         //return cUrReNt_lOaNs.size();
         return currentLoans.size();//changed cUrReNt_lOaNs to currentLoans 
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public double FiNeS_OwEd() {
     public double getFinesOwed() { //changed FiNeS_OwEd to getFinesOwed   
         //return FiNeS_OwInG;
         return finesOwing;//changed FiNeS_OwInG to finesOwing
     }
 
-//Authored by Chelaka_Fernando	
+//Authored by Chelaka_Fernando	- Mediator by Niharika_Gavvala
     //public void TaKe_OuT_LoAn(Loan lOaN) {
     public void takeOutLoan(Loan loan) {//changed TaKe_OuT_LoAn to takeOutLoan and lOaN to loan
         //if (!cUrReNt_lOaNs.containsKey(lOaN.GeT_Id())) {
@@ -123,28 +123,28 @@ public class Member implements Serializable {
 
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     // public String GeT_LaSt_NaMe() {
     public String getLastName() {//changed GeT_LaSt_NaMe to getLastName
         //return LaSt_NaMe;
         return lastName;//changed  LaSt_NaMe to lastName
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public String GeT_FiRsT_NaMe() {
     public String getFirstName() {//changed GeT_FiRsT_NaMe to getFirstName
         //return FiRsT_NaMe;
         return firstName;//changed  FiRsT_NaMe to firstName
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public void AdD_FiNe(double fine) {
     public void addFine(double fine) {//changed AdD_FiNe to addFine
         //FiNeS_OwInG += fine;
         finesOwing = finesOwing + fine;//changed FiNeS_OwInG to finesOwing and simplified the calculation
     }
 
-//Authored by Chelaka_Fernando
+//Authored by Chelaka_Fernando - Mediator by Niharika_Gavvala
     //public double PaY_FiNe(double AmOuNt) {
     public double payFine(double amount) {//changed PaY_FiNe to payFine and AmOuNt to amount
         //if (AmOuNt < 0) {
@@ -167,7 +167,7 @@ public class Member implements Serializable {
         return change;
     }
 
-    //dischargeLoan -- Authored by Niharika_Gavvala
+    //dischargeLoan -- Authored by Niharika_Gavvala - Mediator by Chelaka_Fernando
     /*public void dIsChArGeLoAn(Loan LoAn) {
 		if (cUrReNt_lOaNs.containsKey(LoAn.GeT_Id())) 
 			cUrReNt_lOaNs.remove(LoAn.GeT_Id());
