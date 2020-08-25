@@ -28,15 +28,19 @@ public class PayFineControl {//changed pAY_fINE_cONTROL to PayFineControl
         state = ControlState.INITIALISED;//changed StAtE to state and cOnTrOl_sTaTe to ControlState
     }
 	
-	public void SeT_uI(PayFineUI uI) {
-		if (!StAtE.equals(cOnTrOl_sTaTe.INITIALISED)) {
-			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
-		}	
-		this.Ui = uI;
-		uI.SeT_StAtE(PayFineUI.uI_sTaTe.READY);
-		StAtE = cOnTrOl_sTaTe.READY;		
-	}
-
+//public void SeT_uI(PayFineUI uI) {
+    public void setUi(PayFineUI ui) {//changed SeT_uI to setUi and uI to ui
+        //if (!StAtE.equals(cOnTrOl_sTaTe.INITIALISED)) {
+        if (!state.equals(ControlState.INITIALISED)) {//changed StAtE to state and cOnTrOl_sTaTe to ControlState
+            throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
+        }
+        //this.Ui = uI;
+        this.Ui = uI;//changed Ui to ui and uI to ui
+        //uI.SeT_StAtE(PayFineUI.uI_sTaTe.READY);
+        ui.setState(PayFineUI.UiState.READY);//changed uI to ui and SeT_StAtE to setState and uI_sTaTe to UiState
+        //StAtE = cOnTrOl_sTaTe.READY;	
+        state = ControlState.READY;//changed StAtE to state and cOnTrOl_sTaTe to ControlState
+    }
 
 	public void CaRd_sWiPeD(int MeMbEr_Id) {
 		if (!StAtE.equals(cOnTrOl_sTaTe.READY)) 
