@@ -10,7 +10,7 @@ import library.entities.Library;
  * @Reviewer :Harsha_Dilup_Kumara
  * @Lecturer :Recep_Ulusoy
  * @File_Created_Date :27/07/2020
- * @File_Last_Update_Date :24/08/2020
+ * @File_Last_Update_Date :25/08/2020
  * *********************************************************************
  */
 //public class fIX_bOOK_cONTROL {
@@ -83,20 +83,28 @@ public class FixBookControl {//changed fIX_bOOK_cONTROL to FixBookControl
         ui.setState(FixBookUI.UiState.FIXING);//changed SeT_StAtE to setState and uI_STaTe to UiState
         //StAtE = CoNtRoL_StAtE.FIXING;
         state = ControlState.FIXING;//changed StAtE to state and CoNtRoL_StAtE to ControlState
+
     }
 
-    public void FiX_BoOk(boolean mUsT_FiX) {
-        if (!StAtE.equals(CoNtRoL_StAtE.FIXING)) {
+    //public void FiX_BoOk(boolean mUsT_FiX) {
+    public void checkFixBook(boolean mustFix) {//changed FiX_BoOk to checkFixBook and mUsT_FiX to mustFix
+        //if (!StAtE.equals(CoNtRoL_StAtE.FIXING)) {
+        if (!state.equals(ControlState.FIXING)) {//changed StAtE to state and CoNtRoL_StAtE to ControlState
             throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
         }
 
-        if (mUsT_FiX) {
-            LiBrArY.RePaIr_BoOk(CuRrEnT_BoOk);
+        //if (mUsT_FiX) {
+        if (mustFix) {//changed mUsT_FiX to mustFix
+            //LiBrArY.RePaIr_BoOk(CuRrEnT_BoOk);
+            library.repairDamageBook(currentBook);//changed LiBrArY.RePaIr_BoOk(CuRrEnT_BoOk) to library.repairDamageBook(currentBook)
         }
 
-        CuRrEnT_BoOk = null;
-        Ui.SeT_StAtE(FixBookUI.uI_sTaTe.READY);
-        StAtE = CoNtRoL_StAtE.READY;
+        //CuRrEnT_BoOk = null;
+        currentBook = null;//changed CuRrEnT_BoOk to currentBook
+        //Ui.SeT_StAtE(FixBookUI.uI_sTaTe.READY);
+        ui.setState(FixBookUI.UiState.READY);//changed SeT_StAtE to setState and uI_STaTe to UiState
+        //StAtE = CoNtRoL_StAtE.READY;
+        state = ControlState.READY;//changed StAtE to state and CoNtRoL_StAtE to ControlState
     }
 
     //public void SCannING_COMplete() {
