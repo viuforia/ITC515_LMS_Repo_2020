@@ -45,9 +45,14 @@ public class BorrowBookUI {
 	}
 
 	
-	private String iNpUT(String PrOmPt) {
-		System.out.print(PrOmPt);
-		return InPuT.nextLine();
+	//private String iNpUT(String PrOmPt) {
+	private String getinput(String userPrompt) { // method name change iNpUT to getinput
+		//System.out.print(PrOmPt);
+		System.out.print(userPrompt); // caller argument parameter change PrOmPt to userPrompt
+		
+		//return InPuT.nextLine();
+		String userInput = inputReader.nextLine(); // simplified the statement by creating variable called userInpute
+		return userInput;
 	}	
 		
 		
