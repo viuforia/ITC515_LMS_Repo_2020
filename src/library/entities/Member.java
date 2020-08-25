@@ -9,8 +9,8 @@ import java.util.Map;
 
 /**
  * *********************************************************************
- * @Author :Chelaka_Fernando
- * @Mediator :Niharika_Gavvala
+ * @Author :Chelaka_Fernando, Niharika_Gavvala
+ * @Mediator :Niharika_Gavvala, Chelaka_Fernando
  * @Reviewer :Harsha_Dilup_Kumara
  * @Lecturer :Recep_Ulusoy
  * @File_Created_Date :27/07/2020
@@ -36,6 +36,7 @@ public class Member implements Serializable {
     //private Map<Integer, Loan> cUrReNt_lOaNs;
     private Map<Integer, Loan> currentLoans;
 
+	//Member constructor -- Authored by Niharika_Gavvala
     //public Member(String lAsT_nAmE, String fIrSt_nAmE, String eMaIl_aDdReSs, int pHoNe_nUmBeR, int mEmBeR_iD) 
     public Member(String lastName, String firstName, String emailAddress, int phoneNumber, int memberId) {  //lAsT_nAmE changed to lastName, fIrSt_nAmE changed to firstName, eMaIl_aDdReSs changed to emailAddress, pHoNe_nUmBeR changed to phoneNumber and mEmBeR_iD to memberId   
 
@@ -155,6 +156,8 @@ public class Member implements Serializable {
         return change;
     }
 
+	//dischargeLoan -- Authored by Niharika_Gavvala
+	
 
     /*public void dIsChArGeLoAn(Loan LoAn) {
 		if (cUrReNt_lOaNs.containsKey(LoAn.GeT_Id())) 
