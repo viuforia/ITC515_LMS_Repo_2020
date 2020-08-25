@@ -56,13 +56,17 @@ public class BorrowBookUI {
 	}	
 		
 		
-	private void OuTpUt(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	//private void OuTpUt(Object ObJeCt) {
+	private void displayOutPut(Object displayObject) { //method name change OuTpUt to displayOutPut
+		//System.out.println(ObJeCt);
+		System.out.println(displayObject); // Parameter variable name change ObJeCt to displayObject
 	}
 	
 			
-	public void SeT_StAtE(uI_STaTe StAtE) {
-		this.StaTe = StAtE;
+	//public void SeT_StAtE(uI_STaTe StAtE) {
+	public void setUiState(UiState bookState) { // method name change SeT_StAtE to setUiState
+		//this.StaTe = StAtE;
+		this.borrowBookStaTe = bookState; // variable name change StaTe to borrowBookStaTe
 	}
 
 	
