@@ -113,7 +113,7 @@ public class Loan implements Serializable {
 	//public void DiScHaRgE() {
 	public void discharge() {  //changed DiScHaRgE to discharge
 		//StAtE = lOaN_sTaTe.DISCHARGED;
-		state = LoanState.DISCHARGED;  //changed StAtE to state and lOaN_sTaTe to LoanState
+		state = LoanState.DISCHARGED;  //renamed StAtE to state and lOaN_sTaTe to LoanState
 	}
 
 }
