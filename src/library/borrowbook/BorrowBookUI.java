@@ -29,11 +29,19 @@ public class BorrowBookUI {
 	private UiState bookUiState; // change UIState enum variable StaTe to bookUiState
 
 	
-	public BorrowBookUI(bORROW_bOOK_cONTROL control) {
-		this.CoNtRoL = control;
-		InPuT = new Scanner(System.in);
-		StaTe = uI_STaTe.INITIALISED;
-		control.SeT_Ui(this);
+	//public BorrowBookUI(bORROW_bOOK_cONTROL control) {
+	public BorrowBookUI(BorrowBookControl borrowBookControl) { // parameter name change bORROW_bOOK_cONTROL to borrowBookControl
+		//this.CoNtRoL = control;
+		this.borrowBookControl =  borrowBookControl; // instance name change CoNtRoL to borrowBookControl
+		
+		//InPuT = new Scanner(System.in);
+		inputReader = new Scanner(System.in); // instance name change InPuT to inputReader
+		
+		//StaTe = uI_STaTe.INITIALISED;
+		borrowBookStaTe = UiState.INITIALISED; // instance name change StaTe to borrowBookStaTe
+		
+		//control.SeT_Ui(this);
+		borrowBookControl.setUi(this); // instance method name change change SeT_Ui to setUi
 	}
 
 	
