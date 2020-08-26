@@ -69,13 +69,19 @@ public class Main {
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
-			LIB = Library.GeTiNsTaNcE();
-			CAL = Calendar.gEtInStAnCe();
+			//IN = new Scanner(System.in);
+			inputReader = new Scanner(System.in); //IN changed to inputReader
+			//LIB = Library.GeTiNsTaNcE();
+			library = Library.getInstance(); //LIB changed to library and GeTiNsTaNcE changed to getInstance()
+			//CAL = Calendar.gEtInStAnCe();
+			calendar = Calendar.getInstance();  //CAL changed tocalendar and gEtInstance
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");  //added object as SimpleDateFormat and SDF to simpleDateFormat
 	
-			for (Member m : LIB.lIsT_MeMbErS()) {
-				output(m);
+			//for (Member m : LIB.lIsT_MeMbErS()) {
+			for (Member member : library.listMembers()) {  //m changed to member and LIB to library and the lIsT_MeMbErS to listMembers()
+				//output(m);
+				output(member); //changed m to member
 			}
 			output(" ");
 			for (Book b : LIB.lIsT_BoOkS()) {
