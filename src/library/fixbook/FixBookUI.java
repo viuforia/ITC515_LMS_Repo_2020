@@ -106,13 +106,16 @@ public class FixBookUI {
 	}		
 		
 		
-	private void OuTpUt(Object object) {
-		System.out.println(object);
+	private void displayOutPut(Object displayObject) { // method name OuTpUt change to displayOutPut
+		//System.out.println(object);
+		System.out.println(displayObject); // instance variable name change object to displayObject
 	}
 	
 
-	public void dIsPlAy(Object object) {
-		OuTpUt(object);
+	//public void dIsPlAy(Object object) {
+	public void displayObject(Object object) { // method name change dIsPlAy to displayObject
+		//OuTpUt(object);
+		displayOutPut(object); // method caller name change OuTpUt to displayOutPut
 	}
 	
 	
