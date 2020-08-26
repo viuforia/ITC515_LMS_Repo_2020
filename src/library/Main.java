@@ -1,29 +1,44 @@
+//Author: Niharika Gavvala
+//Mediator: Harsha
+//Reviewer: Chelaka Fernando
+
+
 package library;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import library.borrowbook.BorrowBookUI;
-import library.borrowbook.bORROW_bOOK_cONTROL;
+//import library.borrowbook.bORROW_bOOK_cONTROL;
+import library.borrowbook.BorrowBookControl;   //changed bORROW_bOOK_cONTROL to BorrowbookControl
 import library.entities.Book;
 import library.entities.Calendar;
 import library.entities.Library;
 import library.entities.Loan;
 import library.entities.Member;
 import library.fixbook.FixBookUI;
-import library.fixbook.fIX_bOOK_cONTROL;
+//import library.fixbook.fIX_bOOK_cONTROL;
+import library.fixbook.FixBookControl;  //changed fIX_bOOK_cONTROL to FixBookControl
 import library.payfine.PayFineUI;
-import library.payfine.pAY_fINE_cONTROL;
+//import library.payfine.pAY_fINE_cONTROL;
+import library.payfine.PayFineControl;  //changed pAY_fINE_cONTROL to PayFineControl
 import library.returnBook.ReturnBookUI;
-import library.returnBook.rETURN_bOOK_cONTROL;
+//import library.returnBook.rETURN_bOOK_cONTROL;
+import library.returnBook.ReturnBookControl;   //changed rETURN_bOOK_cONTROL to ReturnBookUI
+
 
 
 public class Main {
 	
-	private static Scanner IN;
-	private static Library LIB;
-	private static String MENU;
-	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
+	//private static Scanner IN;
+	private static Scanner inputReader;  //changed IN to inputReader
+	//private static Library LIB;
+	private static Library library;  //changed LIB to library
+	//private static String MENU;
+	private static String menu;  //changed MENU to menu
+	//private static Calendar CAL;
+	private static Calendar calendar;  //changed CAL to calendar
+	//private static SimpleDateFormat SDF;
+	private static SimpleDateFormat simpleDateFormat;  //changed SDF to simpleDateFormat
 	
 	
 	private static String Get_menu() {
@@ -135,7 +150,8 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void PAY_FINES() {
+	
+	private static void PAY_FINES() {
 		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
 	}
 
