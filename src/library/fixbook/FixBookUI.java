@@ -52,46 +52,75 @@ public class FixBookUI {
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Fix Book Use Case UI\n");
+	// public void RuN() {
+	public void runFixBook() { // method name change RuN to runFixBook
+		
+		//OuTpUt("Fix Book Use Case UI\n");
+		displayOutPut("Fix Book Use Case UI\n"); // method name OuTpUt change to displayOutPut
 		
 		while (true) {
 			
-			switch (StAtE) {
+			//switch (StAtE) {
+			switch (fixBookState) { // conditional variable change to StAtE to fixBookState
 			
 			case READY:
-				String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				if (BoOk_EnTrY_StRiNg.length() == 0) 
-					CoNtRoL.SCannING_COMplete();
+				//String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
+				String bookEntryString = getinput("Scan Book (<enter> completes): "); // variable name BoOk_EnTrY_StRiNg to bookEntryString
+																					  // method name change iNpUt to getinput
 				
-				else {
+				//if (BoOk_EnTrY_StRiNg.length() == 0) 
+				if (bookEntryString.length() == 0) { // variable name change BoOk_EnTrY_StRiNg to bookEntryString
+					//CoNtRoL.SCannING_COMplete();
+					fixBookControl.setScanningComplete(); // instance variable and method name change CoNtRoL, SCannING_COMplete to fixBookControl, setScanningComplete 
+												
+				} else {
 					try {
-						int BoOk_Id = Integer.valueOf(BoOk_EnTrY_StRiNg).intValue();
-						CoNtRoL.BoOk_ScAnNeD(BoOk_Id);
-					}
-					catch (NumberFormatException e) {
-						OuTpUt("Invalid bookId");
+						
+						//int BoOk_Id = Integer.valueOf(BoOk_EnTrY_StRiNg).intValue();
+						int bookId = Integer.valueOf(bookEntryString).intValue(); // variable name change BoOk_Id to bookId
+						
+						//CoNtRoL.BoOk_ScAnNeD(BoOk_Id);
+						fixBookControl.scanBook(bookId); // method caller name change BoOk_ScAnNeD to scanBook
+						
+					} catch (NumberFormatException e) {
+						
+						//OuTpUt("Invalid bookId");
+						displayOutPut("Invalid bookId"); // method name OuTpUt change to displayOutPut
 					}
 				}
 				break;	
 				
 			case FIXING:
-				String AnS = iNpUt("Fix Book? (Y/N) : ");
-				boolean FiX = false;
-				if (AnS.toUpperCase().equals("Y")) 
-					FiX = true;
 				
-				CoNtRoL.FiX_BoOk(FiX);
+				//String AnS = iNpUt("Fix Book? (Y/N) : ");
+				String userAnswer = getinput("Fix Book? (Y/N) : ");  // method name change iNpUt to getinput
+										    // variable name change AnS to userAnswer
+				
+				//boolean fix = false;
+				boolean isFixBook = false; // variable name change fix to isFixBook
+				
+				//if (AnS.toUpperCase().equals("Y")) 
+					//FiX = true;
+				
+				if (userAnswer.toUpperCase().equals("Y")){ // added braces to conditional if condition
+					isFixBook = true;
+				}
+				
+				//CoNtRoL.FiX_BoOk(FiX);
+				fixBookControl.fixBook(isFixBook); // method caller name change  FiX_BoOk to fixBook
 				break;
 								
 			case COMPLETED:
-				OuTpUt("Fixing process complete");
+				//OuTpUt("Fixing process complete");
+				displayOutPut("Fixing process complete"); // method name OuTpUt change to displayOutPut
 				return;
 			
 			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
-			
+				//OuTpUt("Unhandled state");
+				displayOutPut("Unhandled state"); // method name OuTpUt change to displayOutPut
+				
+				//throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + fixBookState);			
 			}		
 		}
 		
