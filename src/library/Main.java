@@ -85,67 +85,84 @@ public class Main {
 			}
 			output(" ");
 			//for (Book b : LIB.lIsT_BoOkS()) {
-			for (Book book : library.listBooks()) {  //changed b to book and LIB.lIsT_BoOkS to library.listBooks()
+
+			for (Book book : library.listBooks()) {  //changed b to book and LIB.lIsT_BoOkS() to library.listBooks
 				//output(b);
-				output(book); //changed b to book
+				output(book);  //changed b to book
 			}
 						
 			//MENU = Get_menu();
-			menu = getMenu();  //changed MENU to menu and Get_menu() to getMenu()
+			menu = getMenu();  //changed MENU to menu and Get_menu to getMenu
+
 			
-			boolean e = false;
+			//boolean e = false;
+			boolean entry = false; //changed e to entry
 			
-			while (!e) {
+			//while (!e) {
+			while (!entry) {  //e changed to entry
 				
 				//output("\n" + SDF.format(CAL.gEt_DaTe()));
-				output("\n" + simpleDateFormat.format(calendar.getDate()));  //changed SDF to simpleDateFormat and CAL.gEt_DaTe() to calendar.getDate() 
+
+				output("\n" + simpleDateFormat.format(calendar.getDate()));  //SDF changed to simpleDateFormat and CAL.gEt_DaTe to calendar.getDate
 				//String c = input(MENU);
-				String c = input(menu);  //changed MENU to menu
+				String cInput = input(menu);  //changed the variable c to cInput and MENU to menu
 				
-				switch (c.toUpperCase()) {
+				//switch (c.toUpperCase()) {
+				switch (cInput.toUpperCase()) {  //changed c to cInput
 				
 				case "M": 
-					ADD_MEMBER();
+					//ADD_MEMBER();
+					addMember(); //changed ADD_MEMBER to addMember
 					break;
 					
 				case "LM": 
-					LIST_MEMBERS();
+					//LIST_MEMBERS();
+					listMembers();  //changed LIST_MEMBERS to listMembers
 					break;
 					
 				case "B": 
-					ADD_BOOK();
+					//ADD_BOOK();
+					addBook();  //changed ADD_BOOK to addBook
 					break;
 					
 				case "LB": 
-					LIST_BOOKS();
+					//LIST_BOOKS();
+					listBooks();  //changed LIST_BOOKS to listBooks
 					break;
 					
 				case "FB": 
-					FIX_BOOKS();
+					//FIX_BOOKS();
+					fixBooks();  //changed FIX_BOOKS to fixBooks
 					break;
 					
 				case "L": 
-					BORROW_BOOK();
+					//BORROW_BOOK();
+					borrowBook();  //changed BORROW_BOOK to borrowBook
 					break;
 					
 				case "R": 
-					RETURN_BOOK();
+					//RETURN_BOOK();
+					returnBook();  //changed RETURN_BOOK to returnBook
 					break;
 					
 				case "LL": 
-					LIST_CURRENT_LOANS();
+					//LIST_CURRENT_LOANS();
+					listCurrentLoans(); //LIST_CURRENT_LOANS changed to listCurrentLoans
 					break;
 					
 				case "P": 
-					PAY_FINES();
+					//PAY_FINES();
+					payFines();  //changed PAY_FINES to payFines
 					break;
 					
 				case "T": 
-					INCREMENT_DATE();
+					//INCREMENT_DATE();
+					incrementDate();  //changed INCREMENT_DATE to incrementDate
 					break;
 					
 				case "Q": 
-					e = true;
+					//e = true;
+					entry = true; //e changed to entry
 					break;
 					
 				default: 
@@ -153,10 +170,12 @@ public class Main {
 					break;
 				}
 				
-				Library.SaVe();
+				//Library.SaVe();
 			}			
-		} catch (RuntimeException e) {
-			output(e);
+		} //catch (RuntimeException e) {
+		  catch (RuntimeException entry) {  //e changed to entry
+			//output(e);
+			output(entry);  //changed e to entry
 		}		
 		output("\nEnded\n");
 	}	

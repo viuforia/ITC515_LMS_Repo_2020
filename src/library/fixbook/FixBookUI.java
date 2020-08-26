@@ -45,8 +45,10 @@ public class FixBookUI {
 	}
 
 
-	public void SeT_StAtE(uI_sTaTe state) {
-		this.StAtE = state;
+	//public void SeT_StAtE(uI_sTaTe state) {
+	public void setFixBookState(UiState uiState) { // method name change SeT_StAtE to setFixBookState
+		//this.StAtE = state;
+		this.fixBookState = uiState; // variable name change StAtE to fixBookState
 	}
 
 	
@@ -96,10 +98,12 @@ public class FixBookUI {
 	}
 
 	
-	private String iNpUt(String prompt) {
+	// private String iNpUt(String prompt) {
+	private String getinput(String prompt) {  // method name change iNpUt to getinput
 		System.out.print(prompt);
-		return InPuT.nextLine();
-	}	
+		String userInput = inputReader.nextLine(); // statement simplified by creating variable name called userInput
+		return userInput;
+	}		
 		
 		
 	private void OuTpUt(Object object) {
