@@ -85,7 +85,6 @@ public class Main {
 			}
 			output(" ");
 			//for (Book b : LIB.lIsT_BoOkS()) {
-
 			for (Book book : library.listBooks()) {  //changed b to book and LIB.lIsT_BoOkS() to library.listBooks
 				//output(b);
 				output(book);  //changed b to book
@@ -93,7 +92,6 @@ public class Main {
 						
 			//MENU = Get_menu();
 			menu = getMenu();  //changed MENU to menu and Get_menu to getMenu
-
 			
 			//boolean e = false;
 			boolean entry = false; //changed e to entry
@@ -102,7 +100,6 @@ public class Main {
 			while (!entry) {  //e changed to entry
 				
 				//output("\n" + SDF.format(CAL.gEt_DaTe()));
-
 				output("\n" + simpleDateFormat.format(calendar.getDate()));  //SDF changed to simpleDateFormat and CAL.gEt_DaTe to calendar.getDate
 				//String c = input(MENU);
 				String cInput = input(menu);  //changed the variable c to cInput and MENU to menu
