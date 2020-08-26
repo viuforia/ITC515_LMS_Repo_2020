@@ -33,11 +33,14 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
     //private Loan CurrENT_loan;
     private Loan currentLoan;//changed CurrENT_loan to currentLoan
 
-	public rETURN_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = cOnTrOl_sTaTe.INITIALISED;
-	}
-	
+    //public rETURN_bOOK_cONTROL() {
+    public ReturnBookControl() {//changed rETURN_bOOK_cONTROL to ReturnBookControl
+        //this.lIbRaRy = Library.GeTiNsTaNcE();
+        this.library = Library.getInstance();//changed lIbRaRy to library and GeTiNsTaNcE to getInstance
+        //sTaTe = cOnTrOl_sTaTe.INITIALISED;
+        state = ControlState.INITIALISED;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+
+    }
 	
 	public void sEt_uI(ReturnBookUI uI) {
 		if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) 
