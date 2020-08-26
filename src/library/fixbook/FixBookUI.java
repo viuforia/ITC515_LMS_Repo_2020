@@ -14,18 +14,34 @@ import java.util.Scanner;
 
 public class FixBookUI {
 
-	public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	//public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED }; // enum change uI_sTaTe to UiState
 
-	private fIX_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_sTaTe StAtE;
+	//private fIX_bOOK_cONTROL CoNtRoL;
+	private FixBookControl fixBookControl; //instance variable name change fIX_bOOK_cONTROL to fixBookControl
+	
+	//private Scanner InPuT;
+	private Scanner inputReader; //instance variable name change InPuT to inputReader
+	
+	//private uI_sTaTe StAtE;
+	private UiState fixBookState; // instance variable name change StAtE to fixBookState
 
 	
-	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) {
-		this.CoNtRoL = CoNtRoL;
-		InPuT = new Scanner(System.in);
-		StAtE = uI_sTaTe.INITIALISED;
-		CoNtRoL.SeT_Ui(this);
+	//public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) {
+	public FixBookUI(FixBookControl fixBookControl) { // parameter name change CoNtRoL to fixBookControl
+		//this.CoNtRoL = CoNtRoL;
+		this.fixBookControl = fixBookControl; // variable name change CoNtRoL = fixBookControl
+		
+		//InPuT = new Scanner(System.in);
+		inputReader = new Scanner(System.in); // instance variable name change InPuT to inputReader
+		
+		
+		//StAtE = uI_sTaTe.INITIALISED;
+		fixBookState = UiState.INITIALISED; // variable name change StAtE to fixBookState
+		
+		//CoNtRoL.SeT_Ui(this);
+		fixBookControl.setUi(this); // instance method name change SeT_Ui to setUi
+		
 	}
 
 

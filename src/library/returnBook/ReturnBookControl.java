@@ -3,21 +3,44 @@ import library.entities.Book;
 import library.entities.Library;
 import library.entities.Loan;
 
-public class rETURN_bOOK_cONTROL {
 
-	private ReturnBookUI Ui;
-	private enum cOnTrOl_sTaTe { INITIALISED, READY, INSPECTING };
-	private cOnTrOl_sTaTe sTaTe;
-	
-	private Library lIbRaRy;
-	private Loan CurrENT_loan;
-	
+/**
+ * *********************************************************************
+ * @Author :Chelaka_Fernando
+ * @Mediator :Harsha_Dilup_Kumara
+ * @Reviewer :Niharika_Gavvala
+ * @Lecturer :Recep_Ulusoy
+ * @File_Created_Date :27/07/2020
+ * @File_Last_Update_Date :24/08/2020
+ * *********************************************************************
+ */
 
-	public rETURN_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = cOnTrOl_sTaTe.INITIALISED;
-	}
-	
+//public class rETURN_bOOK_cONTROL {
+public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookControl
+
+    //private ReturnBookUI Ui;
+    private ReturnBookUI ui;//changed Ui to ui
+
+    //private enum cOnTrOl_sTaTe {INITIALISED, READY, INSPECTING};
+    private enum ControlState {
+        INITIALISED, READY, INSPECTING
+    };//changed cOnTrOl_sTaTe to ControlState
+
+    //private cOnTrOl_sTaTe sTaTe;
+    private ControlState state;//changed cOnTrOl_sTaTe to ControlState and sTaTe to state
+    //private Library lIbRaRy;
+    private Library library;//changed lIbRaRy to library
+    //private Loan CurrENT_loan;
+    private Loan currentLoan;//changed CurrENT_loan to currentLoan
+
+    //public rETURN_bOOK_cONTROL() {
+    public ReturnBookControl() {//changed rETURN_bOOK_cONTROL to ReturnBookControl
+        //this.lIbRaRy = Library.GeTiNsTaNcE();
+        this.library = Library.getInstance();//changed lIbRaRy to library and GeTiNsTaNcE to getInstance
+        //sTaTe = cOnTrOl_sTaTe.INITIALISED;
+        state = ControlState.INITIALISED;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+
+    }
 	
 	public void sEt_uI(ReturnBookUI uI) {
 		if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) 
