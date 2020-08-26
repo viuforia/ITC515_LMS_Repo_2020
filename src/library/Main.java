@@ -84,18 +84,23 @@ public class Main {
 				output(member); //changed m to member
 			}
 			output(" ");
-			for (Book b : LIB.lIsT_BoOkS()) {
-				output(b);
+			//for (Book b : LIB.lIsT_BoOkS()) {
+			for (Book book : library.listBooks()) {  //changed b to book and LIB.lIsT_BoOkS to library.listBooks()
+				//output(b);
+				output(book); //changed b to book
 			}
 						
-			MENU = Get_menu();
+			//MENU = Get_menu();
+			menu = getMenu();  //changed MENU to menu and Get_menu() to getMenu()
 			
 			boolean e = false;
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.gEt_DaTe()));
-				String c = input(MENU);
+				//output("\n" + SDF.format(CAL.gEt_DaTe()));
+				output("\n" + simpleDateFormat.format(calendar.getDate()));  //changed SDF to simpleDateFormat and CAL.gEt_DaTe() to calendar.getDate() 
+				//String c = input(MENU);
+				String c = input(menu);  //changed MENU to menu
 				
 				switch (c.toUpperCase()) {
 				
