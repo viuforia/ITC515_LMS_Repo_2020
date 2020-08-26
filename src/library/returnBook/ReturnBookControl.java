@@ -42,14 +42,20 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
 
     }
 	
-	public void sEt_uI(ReturnBookUI uI) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) 
-			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
-		
-		this.Ui = uI;
-		uI.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
-		sTaTe = cOnTrOl_sTaTe.READY;		
-	}
+//public void sEt_uI(ReturnBookUI uI) {
+    public void setUi(ReturnBookUI ui) {//changed SeT_Ui to setUi and uI to ui
+        //if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) {
+        if (!state.equals(ControlState.INITIALISED)) {//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+            throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
+        }
+
+        //this.Ui = uI;
+        this.ui = ui;//changed Ui to ui and uI to ui
+        //uI.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
+        ui.setState(ReturnBookUI.UiState.READY);//changed uI to ui and sEt_sTaTe to setState and uI_sTaTe to UiState
+        //sTaTe = cOnTrOl_sTaTe.READY;
+        state = ControlState.READY;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+    }
 
 
 	public void bOoK_sCaNnEd(int bOoK_iD) {
