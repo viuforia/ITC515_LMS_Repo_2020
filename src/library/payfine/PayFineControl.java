@@ -66,13 +66,14 @@ public class PayFineControl {//changed pAY_fINE_cONTROL to PayFineControl
         state = ControlState.PAYING;//changed StAtE to state and cOnTrOl_sTaTe to ControlState
     }
 
+ //public void CaNcEl() {
+    public void setCancel() {//changed CaNcEl to setCancel
+        //Ui.SeT_StAtE(PayFineUI.uI_sTaTe.CANCELLED);
+        ui.setState(PayFineUI.UiState.CANCELLED);//changed Ui to ui and SeT_StAtE to setState and uI_STaTe to UiState
+        //StAtE = cOnTrOl_sTaTe.CANCELLED;
+        state = ControlState.CANCELLED;//changed StAtE to state and cOnTrOl_sTaTe to ControlState
+    }
 	
-	public void CaNcEl() {
-		Ui.SeT_StAtE(PayFineUI.uI_sTaTe.CANCELLED);
-		StAtE = cOnTrOl_sTaTe.CANCELLED;
-	}
-
-
 	public double PaY_FiNe(double AmOuNt) {
 		if (!StAtE.equals(cOnTrOl_sTaTe.PAYING)) 
 			throw new RuntimeException("PayFineControl: cannot call payFine except in PAYING state");
