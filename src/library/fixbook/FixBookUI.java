@@ -14,11 +14,17 @@ import java.util.Scanner;
 
 public class FixBookUI {
 
-	public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	//public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState { INITIALISED, READY, FIXING, COMPLETED }; // enum change uI_sTaTe to UiState
 
-	private fIX_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_sTaTe StAtE;
+	//private fIX_bOOK_cONTROL CoNtRoL;
+	private FixBookControl fixBookControl; //instance variable name change fIX_bOOK_cONTROL to fixBookControl
+	
+	//private Scanner InPuT;
+	private Scanner inputReader; //instance variable name change InPuT to inputReader
+	
+	//private uI_sTaTe StAtE;
+	private UiState fixBookState; // instance variable name change StAtE to fixBookState
 
 	
 	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) {
