@@ -274,14 +274,21 @@ public class Main {
 	}
 
 	
-	private static void ADD_MEMBER() {
+	//private static void ADD_MEMBER() {
+	private static void addMember() {   //changed ADD_MEMBER to addMember
 		try {
-			String LaSt_NaMe = input("Enter last name: ");
-			String FiRsT_NaMe  = input("Enter first name: ");
-			String EmAiL_AdDrEsS = input("Enter email address: ");
-			int PhOnE_NuMbEr = Integer.valueOf(input("Enter phone number: ")).intValue();
-			Member MeMbEr = LIB.aDd_MeMbEr(LaSt_NaMe, FiRsT_NaMe, EmAiL_AdDrEsS, PhOnE_NuMbEr);
-			output("\n" + MeMbEr + "\n");
+			//String LaSt_NaMe = input("Enter last name: ");
+			String lastName= input("Enter last name: ");  //changed LaSt_NaMe to lastName
+			//String FiRsT_NaMe  = input("Enter first name: ");
+			String firstName  = input("Enter first name: "); //changed FiRsT_NaMe to firstName
+			//String EmAiL_AdDrEsS = input("Enter email address: ");
+			String emailAddress = input("Enter email address: ");   //changed EmAiL_AdDrEsS to emailAddress
+			//int PhOnE_NuMbEr = Integer.valueOf(input("Enter phone number: ")).intValue();
+			int phoneNumber = Integer.valueOf(input("Enter phone number: ")).intValue();  //PhOnE_NuMbEr changed to phoneNumber
+			//Member MeMbEr = LIB.aDd_MeMbEr(LaSt_NaMe, FiRsT_NaMe, EmAiL_AdDrEsS, PhOnE_NuMbEr);
+			Member member = library.addMember(lastName, firstName, emailAddress, phoneNumber);  //changed MeMbEr to member, LIB.aDd_MeMbEr(LaSt_NaMe, FiRsT_NaMe, EmAiL_AdDrEsS, PhOnE_NuMbEr); to library.addMember(lastName, firstName, emailAddress, phoneNumber);
+			//output("\n" + MeMbEr + "\n");
+			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid phone number\n");
