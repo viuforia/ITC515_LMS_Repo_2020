@@ -53,58 +53,93 @@ public class PayFineUI {
 	}
 
 
-	public void RuN() {
-		output("Pay Fine Use Case UI\n");
+	//public void RuN() {
+	public void runPayFine() { // method name change RuN to runPayFine
+		//output("Pay Fine Use Case UI\n");
+		displayOutPut("Pay Fine Use Case UI\n"); // method name output change to displayOutPut
 		
 		while (true) {
 			
-			switch (StAtE) {
+			//switch (StAtE) {
+			switch (payFineState) { // conditional variable change StAtE to payFineState
 			
 			case READY:
-				String Mem_Str = input("Swipe member card (press <enter> to cancel): ");
-				if (Mem_Str.length() == 0) {
-					CoNtRoL.CaNcEl();
+				//String Mem_Str = input("Swipe member card (press <enter> to cancel): ");
+				String memberInputString = getInput("Swipe member card (press <enter> to cancel): ");   // method name change input to getInput
+				
+				//if (Mem_Str.length() == 0) {
+				if (memberInputString.length() == 0) { // input 
+					
+					//CoNtRoL.CaNcEl();
+					payFineControl.setCancel();
 					break;
 				}
 				try {
-					int Member_ID = Integer.valueOf(Mem_Str).intValue();
-					CoNtRoL.CaRd_sWiPeD(Member_ID);
-				}
-				catch (NumberFormatException e) {
-					output("Invalid memberId");
+					//int Member_ID = Integer.valueOf(Mem_Str).intValue();
+					int memberId = Integer.valueOf(memberInputString).intValue();
+					
+					//CoNtRoL.CaRd_sWiPeD(Member_ID);
+					payFineControl.swipedCard(memberId);
+					
+				} catch (NumberFormatException e) {
+					//output("Invalid memberId");
+					displayOutPut("Invalid memberId"); // method name output change to displayOutPut
 				}
 				break;
 				
 			case PAYING:
-				double AmouNT = 0;
-				String Amt_Str = input("Enter amount (<Enter> cancels) : ");
-				if (Amt_Str.length() == 0) {
-					CoNtRoL.CaNcEl();
+				
+				//double AmouNT = 0;
+				double payFineAmount = 0;
+				
+				//String Amt_Str = input("Enter amount (<Enter> cancels) : ");
+				String cancelPayAmount = getInput("Enter amount (<Enter> cancels) : "); // method name change input to getInput
+				
+				//if (Amt_Str.length() == 0) {
+				if (cancelPayAmount.length() == 0) { // variable name change Amt_Str to cancelPayAmount
+					
+					//CoNtRoL.CaNcEl();
+					payFineControl.setCancel(); // method name change CaNcEl to setCancel
+					
 					break;
 				}
 				try {
-					AmouNT = Double.valueOf(Amt_Str).doubleValue();
+					
+					//AmouNT = Double.valueOf(Amt_Str).doubleValue();
+					payFineAmount = Double.valueOf(cancelPayAmount).doubleValue(); // variable name change AmouNT to payFineAmount
 				}
-				catch (NumberFormatException e) {}
-				if (AmouNT <= 0) {
-					output("Amount must be positive");
+				catch (NumberFormatException e) { // Added curly braces
+					
+				}
+				
+				//if (AmouNT <= 0) {
+				if (payFineAmount <= 0) { // conditional variable name AmouNT change to payFineAmount
+					
+					//output("Amount must be positive");
+					displayOutPut("Amount must be positive"); // method name output change to displayOutPut
 					break;
 				}
-				CoNtRoL.PaY_FiNe(AmouNT);
+				
+				//CoNtRoL.PaY_FiNe(AmouNT);
+				payFineControl.payFine(payFineAmount);  // method name change PaY_FiNe to payFine
 				break;
 								
 			case CANCELLED:
-				output("Pay Fine process cancelled");
+				//output("Pay Fine process cancelled");
+				displayOutPut("Pay Fine process cancelled"); // method name output change to displayOutPut
 				return;
 			
 			case COMPLETED:
-				output("Pay Fine process complete");
+				//output("Pay Fine process complete");
+				displayOutPut("Pay Fine process complete"); // method name output change to displayOutPut
 				return;
 			
 			default:
-				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
-			
+				//output("Unhandled state");
+				displayOutPut("Unhandled state"); // method name output change to displayOutPut
+				
+				//throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + payFineState); // variable name StAtE to payFineState
 			}		
 		}		
 	}
