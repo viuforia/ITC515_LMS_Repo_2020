@@ -45,7 +45,7 @@ public class ReturnBookUI {
 				
 			case READY:
 				//String BoOk_InPuT_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				String bookInputString = getinput("Scan Book (<enter> completes): "); // method name change BoOk_InPuT_StRiNg to 
+				String bookInputString = getInput("Scan Book (<enter> completes): "); // method name change BoOk_InPuT_StRiNg to 
 																					 //  bookInputString
 				//if (BoOk_InPuT_StRiNg.length() == 0) 
 				if (bookInputString.length() == 0) { // added curly braces 
