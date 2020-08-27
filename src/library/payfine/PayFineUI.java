@@ -145,19 +145,28 @@ public class PayFineUI {
 	}
 
 	
-	private String input(String prompt) {
-		System.out.print(prompt);
-		return input.nextLine();
-	}	
+	//private String iNpUT(String prompt) {
+	private String getInput(String userPrompt) { // method name change input to getInput
+		//System.out.print(prompt);
+		System.out.print(userPrompt); 
+		
+		//return input.nextLine();
+		String userInput = inputReader.nextLine(); // statement simplified by creating variable name called userInput
+		return userInput;
+	}		
 		
 		
-	private void output(Object object) {
-		System.out.println(object);
+	//private void output(Object object) {
+	private void displayOutPut(Object displayObject) { // method name output change to displayOutPut
+		//System.out.println(object);
+		System.out.println(displayObject);
 	}	
 			
 
-	public void DiSplAY(Object object) {
-		output(object);
+	//public void DiSplAY(Object object) {
+	public void displayObject(Object object) { // method name change dIsPlAy to displayObject
+		//output(object);	
+		displayOutPut(object); // method caller name change output to displayOutPut
 	}
 
 
