@@ -65,7 +65,7 @@ public class FixBookUI {
 			
 			case READY:
 				//String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				String bookEntryString = getinput("Scan Book (<enter> completes): "); // variable name BoOk_EnTrY_StRiNg to bookEntryString
+				String bookEntryString = getInput("Scan Book (<enter> completes): "); // variable name BoOk_EnTrY_StRiNg to bookEntryString
 																					  // method name change iNpUt to getinput
 				
 				//if (BoOk_EnTrY_StRiNg.length() == 0) 
@@ -93,7 +93,7 @@ public class FixBookUI {
 			case FIXING:
 				
 				//String AnS = iNpUt("Fix Book? (Y/N) : ");
-				String userAnswer = getinput("Fix Book? (Y/N) : ");  // method name change iNpUt to getinput
+				String userAnswer = getInput("Fix Book? (Y/N) : ");  // method name change iNpUt to getInput
 										    // variable name change AnS to userAnswer
 				
 				//boolean fix = false;
@@ -128,7 +128,7 @@ public class FixBookUI {
 
 	
 	// private String iNpUt(String prompt) {
-	private String getinput(String prompt) {  // method name change iNpUt to getinput
+	private String getInput(String prompt) {  // method name change iNpUt to getInput
 		System.out.print(prompt);
 		String userInput = inputReader.nextLine(); // statement simplified by creating variable name called userInput
 		return userInput;
