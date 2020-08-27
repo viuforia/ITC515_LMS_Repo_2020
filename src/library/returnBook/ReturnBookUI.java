@@ -8,7 +8,7 @@ public class ReturnBookUI {
 	public static enum uiState { INITIALISED, READY, INSPECTING, COMPLETED };  //changed uI_sTaTe to uiState
 
 	//private rETURN_bOOK_cONTROL CoNtRoL;
-	private ReturnBookControl control;   //changed rETURN_bOOK_cONTROL to returnBookControl
+	private ReturnBookControl control;   //changed rETURN_bOOK_cONTROL to ReturnBookControl
 	//private Scanner iNpUt;
 	private Scanner input;  //changed iNpUt to input
 	//private uI_sTaTe StATe;
@@ -105,23 +105,32 @@ public class ReturnBookUI {
 
 
 	
-	private String iNpUt(String PrOmPt) {
-		System.out.print(PrOmPt);
-		return iNpUt.nextLine();
+	//private String iNpUt(String PrOmPt) {
+	private String input(String prompt) {  //changed iNpUt to input and PrOmPt to prompt
+		//System.out.print(PrOmPt);
+		System.out.print(prompt);  //changed PrOmPt to prompt
+		//return iNpUt.nextLine();
+		return input.nextLine();  //iNpUt changed to input
 	}	
 		
 		
-	private void oUtPuT(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	//private void oUtPuT(Object ObJeCt) {
+	private void output(Object object) {  //oUtPuT changed to output and ObJeCt to object
+		//System.out.println(ObJeCt);
+		System.out.println(object); //changed ObJeCt to object
 	}
 	
 			
-	public void DiSpLaY(Object object) {
-		oUtPuT(object);
+	//public void DiSpLaY(Object object) {
+	public void display(Object object) {  //changed DiSpLaY to display
+		//oUtPuT(object);
+		output(object);  //changed oUtPuT to output
 	}
 	
-	public void sEt_sTaTe(uI_sTaTe state) {
-		this.StATe = state;
+	//public void sEt_sTaTe(uI_sTaTe state) {
+	public void setState(UiState state) {  //changed sEt_sTaTe to setState and uI_sTaTe to UiState
+		//this.StATe = state;
+		this.state = state; //changed StATe to state
 	}
 
 	
