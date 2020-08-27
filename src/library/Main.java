@@ -299,7 +299,8 @@ public class Main {
 
 	private static String input(String prompt) {
 		System.out.print(prompt);
-		return IN.nextLine();
+		//return IN.nextLine();
+		return inputReader.nextLine();  //changed IN to inputReader
 	}
 	
 	
