@@ -19,7 +19,7 @@ public class BorrowBookUI {
 				     COMPLETED, CANCELLED }; // enum change uI_STaTe to UiState
 
 	//private bORROW_bOOK_cONTROL CoNtRoL;
-	private BorrowBookControl borrowBookControl; // instance class name change bORROW_bOOK_cONTROL BorrowBookControl
+	private BorrowBookControl borrowBookControl; // instance class name change bORROW_bOOK_cONTROL BorrowBooControl
 												 // instance name change CoNtRoL borrowBookControl
 	
 	//private Scanner InPuT; 
