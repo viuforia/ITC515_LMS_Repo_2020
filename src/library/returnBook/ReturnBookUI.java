@@ -32,7 +32,7 @@ public class ReturnBookUI {
 	//public void RuN() {	
 	public void runReturnBook() { // method name change RuN to runReturnBook
 		//oUtPuT("Return Book Use Case UI\n");
-		displayOutPut("Return Book Use Case UI\n"); // method name output change to displayOutPut
+		displayOutput("Return Book Use Case UI\n"); // method name output change to displayOutput
 		
 		while (true) {
 			
@@ -62,7 +62,7 @@ public class ReturnBookUI {
 						
 					}catch (NumberFormatException e) {
 						//oUtPuT("Invalid bookId");
-						displayOutPut("Invalid bookId"); // method name change oUtPuT to displayOutPut
+						displayOutput("Invalid bookId"); // method name change oUtPuT to displayOutput
 					}					
 				}
 				break;				
@@ -90,12 +90,12 @@ public class ReturnBookUI {
 			
 			case COMPLETED:
 				//oUtPuT("Return processing complete");
-				displayOutPut("Return processing complete"); // method name change oUtPuT to displayOutPut
+				displayOutput("Return processing complete"); // method name change oUtPuT to displayOutput
 				return;
 			
 			default:
 				//oUtPuT("Unhandled state");
-				displayOutPut("Unhandled state"); // method name change oUtPuT to displayOutPut
+				displayOutput("Unhandled state"); // method name change oUtPuT to displayOutput
 				
 				//throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);				
 				throw new RuntimeException("ReturnBookUI : unhandled state :" + returnBookState);	// variable name change StATe to returnBookState	
