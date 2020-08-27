@@ -219,18 +219,24 @@ public class Main {
 
 
 
-	private static void BORROW_BOOK() {
-		new BorrowBookUI(new bORROW_bOOK_cONTROL()).RuN();		
+	//private static void BORROW_BOOK() {
+	private static void borrowBook() {   //changed BORROW_BOOK to borrowBook
+		//new BorrowBookUI(new bORROW_bOOK_cONTROL()).RuN();	
+		new BorrowBookUI(new BorrowBookControl()).run();  //changed bORROW_bOOK_cONTROL to BorrowBookControl and RuN to run
 	}
 
 
-	private static void RETURN_BOOK() {
-		new ReturnBookUI(new rETURN_bOOK_cONTROL()).RuN();		
+	//private static void RETURN_BOOK() { 
+	private static void returnBook(){  //RETURN_BOOK changed to returnBook
+		//new ReturnBookUI(new rETURN_bOOK_cONTROL()).RuN();	
+		new ReturnBookUI(new ReturnBookControl()).run();  //changed rETURN_bOOK_cONTROL()).RuN() to ReturnBookControl()).run
 	}
 
 
-	private static void FIX_BOOKS() {
-		new FixBookUI(new fIX_bOOK_cONTROL()).RuN();		
+	//private static void FIX_BOOKS() {
+	private static void fixBooks() {  //changed FIXBOOKS to fixBooks
+		//new FixBookUI(new fIX_bOOK_cONTROL()).RuN();
+		new FixBookUI(new FixBookControl()).RuN();   //changed fIX_bOOK_cONTROL to FixBookControl and RuN to run
 	}
 
 
