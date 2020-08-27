@@ -1,8 +1,8 @@
 package library.returnBook;
+
 import library.entities.Book;
 import library.entities.Library;
 import library.entities.Loan;
-
 
 /**
  * *********************************************************************
@@ -41,8 +41,8 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
         state = ControlState.INITIALISED;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
 
     }
-	
-//public void sEt_uI(ReturnBookUI uI) {
+
+    //public void sEt_uI(ReturnBookUI uI) {
     public void setUi(ReturnBookUI ui) {//changed SeT_Ui to setUi and uI to ui
         //if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) {
         if (!state.equals(ControlState.INITIALISED)) {//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
@@ -57,7 +57,7 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
         state = ControlState.READY;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
     }
 
-//public void bOoK_sCaNnEd(int bOoK_iD) {
+    //public void bOoK_sCaNnEd(int bOoK_iD) {
     public void scanBook(int bookId) {//changed bOoK_sCaNnEd to scanBook and bOoK_iD to bookId
         //if (!sTaTe.equals(cOnTrOl_sTaTe.READY)) {
         if (!state.equals(ControlState.READY)) {//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
@@ -108,7 +108,7 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
         state = ControlState.INSPECTING;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
     }
 
-//public void sCaNnInG_cOmPlEtE() {
+    //public void sCaNnInG_cOmPlEtE() {
     public void setScanningComplete() {//changed sCaNnInG_cOmPlEtE to setScanningComplete
         //if (!sTaTe.equals(cOnTrOl_sTaTe.READY)) {
         if (!state.equals(ControlState.READY)) {//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
@@ -119,15 +119,21 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
         ui.setState(ReturnBookUI.UiState.COMPLETED);//changed Ui to ui and sEt_sTaTe to setState and uI_sTaTe to UiState
     }
 
-	public void dIsChArGe_lOaN(boolean iS_dAmAgEd) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.INSPECTING)) 
-			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
-		
-		lIbRaRy.DiScHaRgE_LoAn(CurrENT_loan, iS_dAmAgEd);
-		CurrENT_loan = null;
-		Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
-		sTaTe = cOnTrOl_sTaTe.READY;				
-	}
+    //public void dIsChArGe_lOaN(boolean iS_dAmAgEd) {
+    public void dischargeLoan(boolean isDamaged) {
+        //if (!sTaTe.equals(cOnTrOl_sTaTe.INSPECTING)) {
+        if (!state.equals(ControlState.INSPECTING)) {//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+            throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
+        }
 
+        //lIbRaRy.DiScHaRgE_LoAn(CurrENT_loan, iS_dAmAgEd);
+        library.dischargeLoan(currentLoan, isDamaged);//changed lIbRaRy.DiScHaRgE_LoAn(CurrENT_loan, iS_dAmAgEd) to library.dischargeLoan(currentLoan, isDamaged)
+        //CurrENT_loan = null;
+        currentLoan = null;//changed CurrENT_loan to currentLoan
+        //Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
+        ui.setState(ReturnBookUI.UiState.READY);//changed Ui to ui and sEt_sTaTe to setState and uI_sTaTe to UiState
+        //sTaTe = cOnTrOl_sTaTe.READY;
+        state = ControlState.READY;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+    }
 
 }
