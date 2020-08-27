@@ -1,3 +1,13 @@
+/***********************************************************************
+ * @Author   		 		:Harsha_Dilup_Kumara - hrajap04@student.csu.edu.au
+ * @Mediator 		 		:Niharika_Gavvala
+ * @Reviewer 		 		:Chelaka_Fernando 
+ * @Lecturer 		 		:Recep_Ulusoy
+ * @File_Created_Date       		:27/07/2020
+ * @File_Last_Update_Date 		:27/08/2020
+ ***********************************************************************/
+
+
 package library.payfine;
 import java.util.Scanner;
 
@@ -5,23 +15,41 @@ import java.util.Scanner;
 public class PayFineUI {
 
 
-	public static enum uI_sTaTe { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	//public static enum uI_sTaTe { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum UiState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; // enum change uI_sTaTe to UiState
 
-	private pAY_fINE_cONTROL CoNtRoL;
-	private Scanner input;
-	private uI_sTaTe StAtE;
+	//private pAY_fINE_cONTROL CoNtRoL;
+	private PayFineControl payFineControl; // instance variable and class name change CoNtRoL,pAY_fINE_cONTROL to
+										  //  payFineControl, PayFineControl
+	
+	//private Scanner input;
+	private Scanner inputReader; //instance variable name change InPuT to inputReader
+	
+	//private uI_sTaTe StAtE;
+	private UiState payFineState; // instance variable name change StAtE to payFineState
 
 	
-	public PayFineUI(pAY_fINE_cONTROL control) {
-		this.CoNtRoL = control;
-		input = new Scanner(System.in);
-		StAtE = uI_sTaTe.INITIALISED;
-		control.SeT_uI(this);
+	//public PayFineUI(pAY_fINE_cONTROL control) {
+	public PayFineUI(PayFineControl payFineControl) { // method parameter name change control to payFineControl
+		
+		//this.CoNtRoL = control;
+		this.payFineControl = payFineControl; // instance variable name change CoNtRoL to payFineControl
+		
+		//input = new Scanner(System.in);
+		inputReader = new Scanner(System.in); // instance variable name change input to inputReader
+		
+		//StAtE = uI_sTaTe.INITIALISED;
+		payFineState = UiState.INITIALISED; // instance variable name change StAtE to payFineState
+		
+		//control.SeT_uI(this);
+		PayFineControl.setUi(this); // instance method name change SeT_uI to setUi
 	}
 	
 	
-	public void SeT_StAtE(uI_sTaTe state) {
-		this.StAtE = state;
+	//public void SeT_StAtE(uI_sTaTe state) {
+	public void setBookFineState(UiState fineState) { // method name change SeT_StAtE to setBookFineState
+		//this.StAtE = state;
+		this.payFineState = fineState; // variable name change state to fineState
 	}
 
 
