@@ -28,50 +28,81 @@ public class ReturnBookUI {
 	}
 
 
-	public void RuN() {		
-		oUtPuT("Return Book Use Case UI\n");
+	 /*@Author by Harsha Dilup Kumara R.H */
+	//public void RuN() {	
+	public void runReturnBook() { // method name change RuN to runReturnBook
+		//oUtPuT("Return Book Use Case UI\n");
+		displayOutPut("Return Book Use Case UI\n"); // method name output change to displayOutPut
 		
 		while (true) {
 			
-			switch (StATe) {
+			//switch (StATe) {
+			
+			switch (returnBookState) { // variable name change StATe to returnBookState
 			
 			case INITIALISED:
 				break;
 				
 			case READY:
-				String BoOk_InPuT_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				if (BoOk_InPuT_StRiNg.length() == 0) 
-					CoNtRoL.sCaNnInG_cOmPlEtE();
-				
-				else {
+				//String BoOk_InPuT_StRiNg = iNpUt("Scan Book (<enter> completes): ");
+				String bookInputString = getinput("Scan Book (<enter> completes): "); // method name change BoOk_InPuT_StRiNg to 
+																					 //  bookInputString
+				//if (BoOk_InPuT_StRiNg.length() == 0) 
+				if (bookInputString.length() == 0) { // added curly braces 
+					//CoNtRoL.sCaNnInG_cOmPlEtE();
+					  returnBookControl.setScanComplete(); // method caller name chagne to sCaNnInG_cOmPlEtE to setScanComplete
+					
+				} else {
 					try {
-						int Book_Id = Integer.valueOf(BoOk_InPuT_StRiNg).intValue();
-						CoNtRoL.bOoK_sCaNnEd(Book_Id);
-					}
-					catch (NumberFormatException e) {
-						oUtPuT("Invalid bookId");
+						//int Book_Id = Integer.valueOf(BoOk_InPuT_StRiNg).intValue();
+						int bookId = Integer.valueOf(bookInputString).intValue(); // variable name change Book_Id to bookId
+						
+						//CoNtRoL.bOoK_sCaNnEd(Book_Id);
+						returnBookControl.setBookScanned(bookId); // method name bOoK_sCaNnEd changed setBookScanned
+						
+					}catch (NumberFormatException e) {
+						//oUtPuT("Invalid bookId");
+						displayOutPut("Invalid bookId"); // method name change oUtPuT to displayOutPut
 					}					
 				}
 				break;				
 				
 			case INSPECTING:
-				String AnS = iNpUt("Is book damaged? (Y/N): ");
-				boolean Is_DAmAgEd = false;
-				if (AnS.toUpperCase().equals("Y")) 					
-					Is_DAmAgEd = true;
+				//String AnS = iNpUt("Is book damaged? (Y/N): ");
+				String userAnswer = getInput("Is book damaged? (Y/N): "); // method name iNpUt change getInput
+																		  // variable name change AnS to userAnswer
 				
-				CoNtRoL.dIsChArGe_lOaN(Is_DAmAgEd);
+				
+				//boolean Is_DAmAgEd = false;
+				boolean isDamaged = false; // variable name change Is_DAmAgEd to isDamaged
+				
+				
+				//if (AnS.toUpperCase().equals("Y")) 					
+					//Is_DAmAgEd = true;
+				
+				if (userAnswer.toUpperCase().equals("Y")) { // added curly braces and variable name change AnS to userAnswer
+					isDamaged = true; // variable name change Is_DAmAgEd to isDamaged
+				}					
+
+				//CoNtRoL.dIsChArGe_lOaN(Is_DAmAgEd);
+				returnBookControl.disChargeLoan(isDamaged); // variable name changed CoNtRoL, Is_DAmAgEd to
+															// returnBookControl, disChargeLoan
 			
 			case COMPLETED:
-				oUtPuT("Return processing complete");
+				//oUtPuT("Return processing complete");
+				displayOutPut("Return processing complete"); // method name change oUtPuT to displayOutPut
 				return;
 			
 			default:
-				oUtPuT("Unhandled state");
-				throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);			
+				//oUtPuT("Unhandled state");
+				displayOutPut("Unhandled state"); // method name change oUtPuT to displayOutPut
+				
+				//throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);				
+				throw new RuntimeException("ReturnBookUI : unhandled state :" + returnBookState);	// variable name change StATe to returnBookState	
 			}
 		}
 	}
+
 
 	
 	private String iNpUt(String PrOmPt) {
