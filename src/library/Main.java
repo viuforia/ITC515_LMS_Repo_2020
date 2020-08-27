@@ -168,6 +168,7 @@ public class Main {
 				}
 				
 				//Library.SaVe();
+				library.save();  //changed Library.SaVe to library.save
 			}			
 		} //catch (RuntimeException e) {
 		  catch (RuntimeException entry) {  //e changed to entry
@@ -178,32 +179,40 @@ public class Main {
 	}	
 
 	
-	private static void PAY_FINES() {
-		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
+	//private static void PAY_FINES() {
+	private static void payFines() {  //changed the PAY_FINES to payFines
+		//new PayFineUI(new pAY_fINE_cONTROL()).RuN();
+		new PayFineUI(new PayFineControl()).run();   //chnaged pAY_fINE_cONTROL to payFineControl and RuN to run
 	}
 
 
-	private static void LIST_CURRENT_LOANS() {
+	//private static void LIST_CURRENT_LOANS() {
+	private static void listCurrentLoans() {   //LIST_CURRENT_LOANS changed to listCurrentLoans
 		output("");
-		for (Loan loan : LIB.lISt_CuRrEnT_LoAnS()) {
+		//for (Loan loan : LIB.lISt_CuRrEnT_LoAnS()) {
+		for (Loan loan : library.listCurrentLoans()) {   //changed LIB.lISt_CuRrEnT_LoAnS to library.listCurrentLoans
 			output(loan + "\n");
 		}		
 	}
 
 
 
-	private static void LIST_BOOKS() {
+	//private static void LIST_BOOKS() {
+	private static void listBooks() {   //changed the LIST_BOOKS to listBooks
 		output("");
-		for (Book book : LIB.lIsT_BoOkS()) {
+		//for (Book book : LIB.lIsT_BoOkS()) {
+		for (Book book : library.listBooks()) {  //changed LIB.lIsT_BoOkS to library.listBooks
 			output(book + "\n");
 		}		
 	}
 
 
 
-	private static void LIST_MEMBERS() {
+	//private static void LIST_MEMBERS() {
+	private static void listMembers() {  //changed LIST_MEMBERS to listMembers
 		output("");
-		for (Member member : LIB.lIsT_MeMbErS()) {
+		//for (Member member : LIB.lIsT_MeMbErS()) {
+		for (Member member : library.listMembers()) {  //changed LIB.lIsT_MeMbErS to library.listMembers
 			output(member + "\n");
 		}		
 	}
