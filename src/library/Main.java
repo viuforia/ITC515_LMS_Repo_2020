@@ -240,12 +240,16 @@ public class Main {
 	}
 
 
-	private static void INCREMENT_DATE() {
+	//private static void INCREMENT_DATE() {
+	private static void incrementDate() {  //changed INCREMENT_DATE to incrementDate
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
-			LIB.cHeCk_CuRrEnT_LoAnS();
-			output(SDF.format(CAL.gEt_DaTe()));
+			//CAL.incrementDate(days);
+			calendar.incrementDate(days); //CAL changed to calendar
+			//LIB.cHeCk_CuRrEnT_LoAnS();
+			library.checkCurrentLoans();  //changed LIB.cHeCk_CuRrEnT_LoAnS to library.checkCurrentLoans
+			//output(SDF.format(CAL.gEt_DaTe()));
+			output(simpleDateFormat.format(calendar.getDate()));  //output(SDF.format(CAL.gEt_DaTe())); changed to output(simpleDateFormat.format(calendar.getDate()))
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");
@@ -253,13 +257,19 @@ public class Main {
 	}
 
 
-	private static void ADD_BOOK() {
+	//private static void ADD_BOOK() {
+	private static void addBook() {  //changed ADD_BOOK to addBook
 		
-		String AuThOr = input("Enter author: ");
-		String TiTlE  = input("Enter title: ");
-		String CaLl_NuMbEr = input("Enter call number: ");
-		Book BoOk = LIB.aDd_BoOk(AuThOr, TiTlE, CaLl_NuMbEr);
-		output("\n" + BoOk + "\n");
+		//String AuThOr = input("Enter author: ");
+		String author = input("Enter author: "); //AuThOr changed to author
+		//String TiTlE  = input("Enter title: ");
+		String title  = input("Enter title: ");  //changed TiTlE to title
+		//String CaLl_NuMbEr = input("Enter call number: ");
+		String callNumber = input("Enter call number: ");  //CaLl_NuMbEr changed to callNumber
+		//Book BoOk = LIB.aDd_BoOk(AuThOr, TiTlE, CaLl_NuMbEr);
+		Book book = library.addBook(author, title, callNumber);  //changed BoOk to book, LIB to library, AuThOr to author, TiTlE to title, CaLl_NuMbEr to callNumber
+		//output("\n" + BoOk + "\n");
+		output("\n" + book + "\n");  //changed BoOk to book
 		
 	}
 
