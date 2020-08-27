@@ -16,7 +16,7 @@ public class ReturnBookUI {
 
 	
 	//public ReturnBookUI(rETURN_bOOK_cONTROL cOnTrOL) {
-	public ReturnBookUI(ReturnBookControl control) {  //changed rETURN_bOOK_cONTROL to ReturnBookControl and cOnTrOL to control
+	public ReturnBookUI(ReturnBookControl control) {  //renamed rETURN_bOOK_cONTROL to ReturnBookControl and cOnTrOL to control
 		//this.CoNtRoL = cOnTrOL;
 		this.control = control;  //changed CoNtRoL to control and cOnTrOL to control
 		//iNpUt = new Scanner(System.in);
