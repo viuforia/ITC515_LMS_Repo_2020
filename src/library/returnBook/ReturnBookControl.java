@@ -108,14 +108,16 @@ public class ReturnBookControl {//changed rETURN_bOOK_cONTROL to ReturnBookContr
         state = ControlState.INSPECTING;//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
     }
 
+//public void sCaNnInG_cOmPlEtE() {
+    public void setScanningComplete() {//changed sCaNnInG_cOmPlEtE to setScanningComplete
+        //if (!sTaTe.equals(cOnTrOl_sTaTe.READY)) {
+        if (!state.equals(ControlState.READY)) {//changed sTaTe to state and cOnTrOl_sTaTe to ControlState
+            throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
+        }
 
-	public void sCaNnInG_cOmPlEtE() {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.READY)) 
-			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
-			
-		Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.COMPLETED);		
-	}
-
+        //Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.COMPLETED);
+        ui.setState(ReturnBookUI.UiState.COMPLETED);//changed Ui to ui and sEt_sTaTe to setState and uI_sTaTe to UiState
+    }
 
 	public void dIsChArGe_lOaN(boolean iS_dAmAgEd) {
 		if (!sTaTe.equals(cOnTrOl_sTaTe.INSPECTING)) 
