@@ -46,7 +46,7 @@ public class BorrowBookUI {
 
 	
 	//private String iNpUT(String PrOmPt) {
-	private String getinput(String userPrompt) { // method name change iNpUT to getinput
+	private String getInput(String userPrompt) { // method name change iNpUT to getInput
 		//System.out.print(PrOmPt);
 		System.out.print(userPrompt); // caller argument parameter change PrOmPt to userPrompt
 		
@@ -88,7 +88,7 @@ public class BorrowBookUI {
 				
 			case READY:
 				//String MEM_STR = iNpUT("Swipe member card (press <enter> to cancel): ");
-				String memberInputString = getinput("Swipe member card (press <enter> to cancel): "); // method name change iNpUT to getinput
+				String memberInputString = getInput("Swipe member card (press <enter> to cancel): "); // method name change iNpUT to getInput
 				
 				
 				//if (MEM_STR.length() == 0) {
@@ -116,7 +116,7 @@ public class BorrowBookUI {
 				
 			case RESTRICTED:
 				// iNpUT("Press <any key> to cancel");
-				getinput("Press <any key> to cancel"); // method name change iNpUT to getinput
+				getInput("Press <any key> to cancel"); // method name change iNpUT to getInput
 					
 				//CoNtRoL.CaNcEl();
 				borrowBookControl.setCancel(); //instance name change CoNtRoL to borrowBookControl
@@ -125,7 +125,7 @@ public class BorrowBookUI {
 				
 			case SCANNING:
 				//String BoOk_StRiNg_InPuT = iNpUT("Scan Book (<enter> completes): ");
-				String inputBookingString = getinput("Scan Book (<enter> completes): "); // method name change iNpUT to getinput
+				String inputBookingString = getInput("Scan Book (<enter> completes): "); // method name change iNpUT to getInput
 				
 				//if (BoOk_StRiNg_InPuT.length() == 0) {
 				if (inputBookingString.length() == 0) {
@@ -148,7 +148,7 @@ public class BorrowBookUI {
 				
 			case FINALISING:
 				//String AnS = iNpUT("Commit loans? (Y/N): ");
-				String userAnswer = getinput("Commit loans? (Y/N): "); // method name change iNpUT to getinput
+				String userAnswer = getInput("Commit loans? (Y/N): "); // method name change iNpUT to getInput
 				                                                      // variable name change AnS to userAnswer
 				
 				// if (AnS.toUpperCase().equals("N")) {
@@ -162,7 +162,7 @@ public class BorrowBookUI {
 													   // method name change CoMmIt_LoAnS to commitLoans
 					
 					//iNpUT("Press <any key> to complete ");
-					getinput("Press <any key> to complete "); // method name change iNpUT to getinput
+					getInput("Press <any key> to complete "); // method name change iNpUT to getInput
 				}
 				break;
 				
