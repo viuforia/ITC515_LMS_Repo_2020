@@ -182,7 +182,7 @@ public class Main {
 	//private static void PAY_FINES() {
 	private static void payFines() {  //changed the PAY_FINES to payFines
 		//new PayFineUI(new pAY_fINE_cONTROL()).RuN();
-		new PayFineUI(new payFineControl()).run();   //chnaged pAY_fINE_cONTROL to payFineControl and RuN to run
+		new PayFineUI(new PayFineControl()).run();   //chnaged pAY_fINE_cONTROL to payFineControl and RuN to run
 	}
 
 
