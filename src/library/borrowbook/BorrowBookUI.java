@@ -1,7 +1,7 @@
 /***********************************************************************
  * @Author   		 		:Harsha_Dilup_Kumara - hrajap04@student.csu.edu.au
- * @Mediator 		 		:Niharika_Gavvala
- * @Reviewer 		 		:Chelaka_Fernando 
+ * @Mediator 		 		:Chelaka_Fernando 
+ * @Reviewer 		 		:Niharika_Gavvala 
  * @Lecturer 		 		:Recep_Ulusoy
  * @File_Created_Date       		:27/07/2020
  * @File_Last_Update_Date 		:25/08/2020
