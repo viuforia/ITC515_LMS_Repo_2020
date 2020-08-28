@@ -3,6 +3,17 @@ package library.payfine;
 import library.entities.Library;
 import library.entities.Member;
 
+/**
+ * *********************************************************************
+ * @Author :Chelaka_Fernando
+ * @Mediator :Harsha_Dilup_Kumara
+ * @Reviewer :Niharika_Gavvala
+ * @Lecturer :Recep_Ulusoy
+ * @File_Created_Date :27/07/2020
+ * @File_Last_Update_Date :28/08/2020
+ * *********************************************************************
+ */
+
 //public class pAY_fINE_cONTROL {
 public class PayFineControl {//changed pAY_fINE_cONTROL to PayFineControl
 
